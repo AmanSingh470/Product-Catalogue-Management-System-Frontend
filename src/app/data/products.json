@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Advanced Surface Treatment (AST)",
+    "category": "Decoration Technologies",
+    "type": "Vision Systems",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Laser Marking",
+    "category": "Industrial Tech",
+    "type": "Automation",
+    "image": "/assets/images/card.jpg"
+  }
+]
