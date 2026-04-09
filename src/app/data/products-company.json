@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "Motherson Group",
+      "productCount": 25,
+      "checked": false
+    },
+    {
+      "id": 2,
+      "name": "Tata Motors",
+      "productCount": 18,
+      "checked": false
+    },
+    {
+      "id": 3,
+      "name": "Bosch",
+      "productCount": 12,
+      "checked": false
+    },
+    {
+      "id": 4,
+      "name": "Mahindra & Mahindra",
+      "productCount": 20,
+      "checked": false
+    },
+    {
+      "id": 5,
+      "name": "Reliance Industries",
+      "productCount": 15,
+      "checked": false
+    }
+]

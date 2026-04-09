@@ -13,8 +13,6 @@ export default function ProductView() {
         setProducts(productsData);
     }, []);
 
-
-
     return view === "grid" ?
         (
             <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3">

@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "title": "Modules & Polymer Products",
+      "count": 120,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "image": "assets/images/card.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Automotive Components",
+      "count": 85,
+      "description": "Dolorum aliquam laboriosam cupiditate reiciendis.",
+      "image": "assets/images/card.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Electrical Systems",
+      "count": 64,
+      "description": "Dicta omnis quam ipsum. Eius, hic ipsam.",
+      "image": "assets/images/card.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Industrial Parts",
+      "count": 42,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "image": "assets/images/card.jpg"
+    }
+]

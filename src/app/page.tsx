@@ -8,6 +8,8 @@ import Main from "@/app/components/Main";
 import {ViewProvider} from "@/app/context/view-context";
 import {FilterProvider} from "@/app/context/filter-context";
 import FilterProductModal from "@/app/components/FilterProductModal";
+import AddProductModal from "@/app/components/AddProductModal";
+import {AddProductProvider} from "@/app/context/add-product-context";
 
 export default function Home() {
   return (
@@ -15,11 +17,14 @@ export default function Home() {
     <Navbar />
     <HeroSection/>
     <ViewProvider>
-      <FilterProvider>
-      <Toolbar/>
-      <Main />
-      <FilterProductModal/>
-      </FilterProvider>
+    <AddProductProvider>
+    <FilterProvider>
+        <Toolbar/>
+        <Main />
+        <FilterProductModal/>
+        <AddProductModal />
+    </FilterProvider>
+    </AddProductProvider>
     </ViewProvider>
     </div>
   );

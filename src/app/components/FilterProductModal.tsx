@@ -11,7 +11,7 @@ export default function FilterProductModal() {
         <div id="small-filter-modal" className="fixed inset-0 z-9999 bg-white flex flex-col">
 
             <div className="flex justify-between items-center p-4 border-b bg-white sticky top-0 z-10">
-                <h2 id="small-filter-modal-title" className="text-lg font-bold">{activeFilter}</h2>
+                <h2 id="small-filter-modal-title" className="text-lg font-bold uppercase">{activeFilter}</h2>
                 <button id="small-filter-modal-close-btn" className="text-2xl font-bold" onClick={closeModal}>&times;</button>
             </div>
 
@@ -28,3 +28,4 @@ export default function FilterProductModal() {
         </div>
     )
 }
+``

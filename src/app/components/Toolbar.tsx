@@ -4,8 +4,11 @@ import ListButton from "@/app/components/ListButton";
 import { useIsLargeScreen } from "@/app/hooks/useIsLargeScreen";
 import SearchProduct from "@/app/components/SearchProduct";
 import FilterProductButton from "@/app/components/FilterProductButton";
+import { useAddProduct } from "@/app/context/add-product-context";
 
 export default function Toolbar() {
+    const { openModal } = useAddProduct();
+
     return useIsLargeScreen() ?
         (
             <div className="hidden lg:flex xl:flex 2xl:flex sticky h-15 top-15 z-50 bg-[#F5F6F8]">
@@ -40,7 +43,7 @@ export default function Toolbar() {
 
                     <ListButton />
 
-                    <button className="bg-red-500 rounded-2xl" id="small-add-product-btn">
+                    <button className="bg-red-500 rounded-2xl" id="small-add-product-btn" onClick={()=> openModal()}>
                         <svg className="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

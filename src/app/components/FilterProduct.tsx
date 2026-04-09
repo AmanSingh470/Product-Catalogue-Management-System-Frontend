@@ -1,8 +1,42 @@
-"use client"; 
+"use client";
 import { useFilter } from "@/app/context/filter-context";
+import { useState, useEffect } from "react";
+import productAllData from "@/app/data/products-all.json";
+import productDivisonData from "@/app/data/products-divison.json";
+import productSegmentData from "@/app/data/products-segment.json";
+import productCompanyData from "@/app/data/products-company.json";
+import Category from "@/app/components/Category";
 
 export default function FilterProduct() {
+    const [allProducts, setAllProducts] = useState<any[]>([]);
+    const [divisonProducts, setDivisonProducts] = useState<any[]>([]);
+    const [segmentProducts, setSegmentProducts] = useState<any[]>([]);
+    const [companyProducts, setCompanyProducts] = useState<any[]>([]);
+
     const { activeFilter } = useFilter();
+    useEffect(() => {
+        switch (activeFilter) {
+            case "all":
+                setAllProducts(productAllData);
+                break;
+
+            case "divison":
+                setDivisonProducts(productDivisonData);
+                break;
+
+            case "segment":
+                setSegmentProducts(productSegmentData);
+                break;
+
+            case "company":
+                setCompanyProducts(productCompanyData);
+                break;
+
+            default:
+                break;
+        }
+    }, [activeFilter]);
+
     switch (activeFilter) {
         case "all":
             return (
@@ -72,6 +106,7 @@ export default function FilterProduct() {
             );
 
         case "divison":
+
             return (
                 (
                     <div id="filter-divison"
@@ -81,15 +116,9 @@ export default function FilterProduct() {
                                 <div>DIVISONS</div>
                                 <div>NO. PRODUCTS</div>
                             </div>
-                            <div className="flex flex-col">
-                                <div className="flex justify-between">
-                                    <div className="flex">
-                                        <input type="checkbox" />
-                                        <div className="ml-2">Aerospace</div>
-                                    </div>
-                                    <div>(1)</div>
-                                </div>
-                            </div>
+                            {divisonProducts.map((item) => (
+                                <Category key={item.id} {...item} />
+                            ))}
                         </div>
                     </div>
                 )
@@ -104,24 +133,9 @@ export default function FilterProduct() {
                             <div>SEGMENT</div>
                             <div>NO. PRODUCTS</div>
                         </div>
-                        <div className="flex flex-col">
-                            <div className="flex justify-between">
-                                <div className="flex">
-                                    <input type="checkbox" />
-                                    <div className="ml-2">Aerospace</div>
-                                </div>
-                                <div>(1)</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="flex justify-between">
-                                <div className="flex">
-                                    <input type="checkbox" />
-                                    <div className="ml-2">Aerospace</div>
-                                </div>
-                                <div>(1)</div>
-                            </div>
-                        </div>
+                        {segmentProducts.map((item) => (
+                            <Category key={item.id} {...item} />
+                        ))}
                     </div>
                 </div>
             );
@@ -135,15 +149,9 @@ export default function FilterProduct() {
                             <div>COMPANIES</div>
                             <div>NO. PRODUCTS</div>
                         </div>
-                        <div className="flex flex-col">
-                            <div className="flex justify-between">
-                                <div className="flex">
-                                    <input type="checkbox" />
-                                    <div className="ml-2">Aerospace</div>
-                                </div>
-                                <div>(1)</div>
-                            </div>
-                        </div>
+                        {companyProducts.map((item) => (
+                            <Category key={item.id} {...item} />
+                        ))}
                     </div>
                 </div>
             );
