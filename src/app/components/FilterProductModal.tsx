@@ -20,7 +20,7 @@ export default function FilterProductModal() {
             </div>
 
             <div className="fixed bottom-0 left-0 w-full bg-white border-t p-4">
-                <button id="apply-filters-btn" className="w-full bg-red-500 text-white py-3 rounded-lg font-bold">
+                <button id="apply-filters-btn" className="w-full bg-red-500 text-white py-3 rounded-lg font-bold" onClick={closeModal}>
                     Show Results
                 </button>
             </div>
