@@ -1,5 +1,6 @@
 "use client";
 import { useFilter } from "@/app/context/filter-context";
+import { useProducts } from "@/app/context/product-context";
 
 type TabType = "all" | "divison" | "company" | "segment";
 
@@ -17,10 +18,15 @@ export default function FilterProductButton(
   
   const isActive = activeFilter === value;
 
+  const { resetFilters } = useProducts();
+
   return (
     <button
       onClick={() => {setActiveFilter(value)
-        if(openModalOnClick) openModal();
+        if(value === "all") {
+          resetFilters();
+        }
+        if(openModalOnClick && value !== "all") openModal();
       }}
       className={`m-1 flex-auto rounded-xs p-2 text-sm cursor-pointer transition ${
         isActive

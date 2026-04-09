@@ -13,6 +13,7 @@ interface ProductContextType {
   setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
   selectedDivisions: string[];
   setSelectedDivisions: React.Dispatch<React.SetStateAction<string[]>>;
+   resetFilters: () => void;
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
@@ -75,6 +76,12 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
         setSelectedSegments,
         selectedDivisions,
         setSelectedDivisions,
+        resetFilters: () => {
+          setSearchQuery("");
+          setSelectedCompanies([]);
+          setSelectedSegments([]);
+          setSelectedDivisions([]);
+        }
       }}
     >
       {children}
