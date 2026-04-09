@@ -9,6 +9,10 @@ interface ProductContextType {
   setSearchQuery: (q: string) => void;
   selectedCompanies: string[];
   setSelectedCompanies: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedSegments: string[];
+  setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedDivisions: string[];
+  setSelectedDivisions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
@@ -18,7 +22,10 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
   const [searchQuery, setSearchQuery] = useState<string>("");
+  
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
+  const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
+  const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
 
   // load data
   useEffect(() => {
@@ -37,15 +44,24 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
       );
     }
 
-    // company filter
-    if (selectedCompanies.length > 0) {
-      result = result.filter((item) =>
-        selectedCompanies.includes(item.company)
-      );
-    }
+    result = result.filter((item) => {
+      const companyMatch =
+        selectedCompanies.length === 0 ||
+        selectedCompanies.includes(item.company);
+
+      const segmentMatch =
+        selectedSegments.length === 0 ||
+        selectedSegments.includes(item.segment);
+
+      const divisionMatch =
+        selectedDivisions.length === 0 ||
+        selectedDivisions.includes(item.division);
+
+      return companyMatch && segmentMatch && divisionMatch;
+    });
 
     setFilteredProducts(result);
-  }, [searchQuery, selectedCompanies, products]);
+  }, [searchQuery, selectedCompanies, selectedSegments, selectedDivisions, products]);
 
   return (
     <ProductContext.Provider
@@ -54,7 +70,11 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
         searchQuery,
         setSearchQuery,
         selectedCompanies,
-        setSelectedCompanies
+        setSelectedCompanies,
+        selectedSegments,
+        setSelectedSegments,
+        selectedDivisions,
+        setSelectedDivisions,
       }}
     >
       {children}

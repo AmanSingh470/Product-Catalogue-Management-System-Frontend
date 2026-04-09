@@ -1,15 +1,37 @@
 "use client";
 import { useProducts } from "@/app/context/product-context";
 
-export default function Category({ name, productCount }: any) {
-  const { selectedCompanies, setSelectedCompanies } = useProducts();
+interface Props {
+  name: string;
+  productCount: number;
+  type: "company" | "segment" | "division";
+}
+
+export default function Category({ name, productCount, type }: Props) {
+  const {
+    selectedCompanies,
+    setSelectedCompanies,
+    selectedSegments,
+    setSelectedSegments,
+    selectedDivisions,
+    setSelectedDivisions
+  } = useProducts();
+
+  const getState = (): [string[], (value: React.SetStateAction<string[]>) => void] => {
+    if (type === "company") return [selectedCompanies, setSelectedCompanies];
+    if (type === "segment") return [selectedSegments, setSelectedSegments];
+    return [selectedDivisions, setSelectedDivisions];
+  };
+
+  const [selected, setSelected] = getState();
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const company = name;
     if (e.target.checked) {
-      setSelectedCompanies([...selectedCompanies, company]);
+      setSelected((prev: string[]) => [...prev, name]);
     } else {
-      setSelectedCompanies(selectedCompanies.filter((c) => c !== company));
+      setSelected((prev: string[]) =>
+        prev.filter((item) => item !== name)
+      );
     }
   };
 
@@ -17,7 +39,11 @@ export default function Category({ name, productCount }: any) {
     <div className="flex flex-col">
       <div className="flex justify-between">
         <div className="flex">
-          <input type="checkbox" defaultChecked={selectedCompanies.includes(name)} onChange={handleCheckboxChange} />
+          <input
+            type="checkbox"
+            checked={selected.includes(name)}
+            onChange={handleCheckboxChange}
+          />
           <div className="ml-2">{name}</div>
         </div>
         <div>({productCount})</div>

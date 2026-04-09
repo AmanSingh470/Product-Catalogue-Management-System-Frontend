@@ -117,7 +117,7 @@ export default function FilterProduct() {
                                 <div>NO. PRODUCTS</div>
                             </div>
                             {divisonProducts.map((item) => (
-                                <Category key={item.id} {...item} />
+                                <Category key={item.id} {...item} type="division" />
                             ))}
                         </div>
                     </div>
@@ -134,7 +134,7 @@ export default function FilterProduct() {
                             <div>NO. PRODUCTS</div>
                         </div>
                         {segmentProducts.map((item) => (
-                            <Category key={item.id} {...item} />
+                            <Category key={item.id} {...item} type="segment" />
                         ))}
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export default function FilterProduct() {
                             <div>NO. PRODUCTS</div>
                         </div>
                         {companyProducts.map((item) => (
-                            <Category key={item.id} {...item} />
+                            <Category key={item.id} {...item} type="company" />
                         ))}
                     </div>
                 </div>
