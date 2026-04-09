@@ -37,7 +37,7 @@ export default function ProductCard({ title, category, type, image }: any) {
                 </div>
 
                 <div className="flex justify-end text-gray-400 col-span-1">
-                    ---
+                    &#8594;
                 </div>
 
             </div>

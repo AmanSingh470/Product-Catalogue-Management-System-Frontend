@@ -1,17 +1,11 @@
 "use client"
 import ProductCard from "@/app/components/ProductCard";
 import { useView } from "@/app/context/view-context";
-import { useEffect, useState } from "react";
-import productsData from "@/app/data/products.json";
+import { useProducts } from "@/app/context/product-context";
 
 export default function ProductView() {
     const { view } = useView();
-
-    const [products, setProducts] = useState<any[]>([]);
-
-    useEffect(() => {
-        setProducts(productsData);
-    }, []);
+    const {filteredProducts} = useProducts();
 
     return view === "grid" ?
         (
@@ -19,7 +13,7 @@ export default function ProductView() {
 
                 <div id="product-grid"
                     className="grid gap-4 grid-span-full grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 bg-[#F5F6F8]">
-                    {products.map((item) => (
+                    {filteredProducts.map((item) => (
                         <ProductCard key={item.id} {...item} />
                     ))}
                 </div>
@@ -39,7 +33,7 @@ export default function ProductView() {
                     </div>
 
                     <div className="space-y-2">
-                        {products.map((item) => (
+                        {filteredProducts.map((item) => (
                             <ProductCard key={item.id} {...item} />
                         ))}
                     </div>

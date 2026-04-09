@@ -49,7 +49,7 @@ export default function Navbar() {
                 </h1>
             </div>
             <div className="flex-1"></div>
-            <div className="flex p-3 w-[20%] justify-evenly">
+            <div className="flex p-3 w-[10%] justify-evenly">
                 <button className={`cursor-pointer ${scrolled?"block":"hidden"}`}>
                     <img className="size-6 header-action" src="/assets/images/bell-icon.svg" alt="" />
                 </button>

@@ -1,20 +1,10 @@
 [
-    {
-      "id": 1,
-      "name": "Aerospace",
-      "productCount": 1,
-      "checked": false
-    },
-    {
-      "id": 2,
-      "name": "Automotive",
-      "productCount": 12,
-      "checked": false
-    },
-    {
-      "id": 3,
-      "name": "Electronics",
-      "productCount": 8,
-      "checked": false
-    }
+  { "id": 1, "name": "Surface Engineering", "productCount": 3, "checked": false },
+  { "id": 2, "name": "Manufacturing", "productCount": 2, "checked": false },
+  { "id": 3, "name": "Inspection", "productCount": 2, "checked": false },
+  { "id": 4, "name": "Production", "productCount": 2, "checked": false },
+  { "id": 5, "name": "Monitoring", "productCount": 2, "checked": false },
+  { "id": 6, "name": "Packaging", "productCount": 1, "checked": false },
+  { "id": 7, "name": "Maintenance", "productCount": 1, "checked": false },
+  { "id": 8, "name": "Storage", "productCount": 1, "checked": false }
 ]
