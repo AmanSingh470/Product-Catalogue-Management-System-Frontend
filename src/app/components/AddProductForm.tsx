@@ -46,7 +46,8 @@ export default function AddProductForm() {
 
             <div>
                 <label className="text-sm font-medium text-black">
-                    Title
+                    Title<span className="text-red-500">*</span>
+
                 </label>
                 <p className="text-xs text-gray-400 mb-1">Brand Vehicle product name</p>
 
@@ -68,8 +69,8 @@ export default function AddProductForm() {
                     <label className="text-sm font-medium text-black">
                         Category<span className="text-red-500">*</span>
                     </label>
-                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white" required>
-                        <option value="" disabled selected>Choose category</option>
+                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black" required>
+                        <option value=""  hidden >Choose category</option>
 
                         {categoryProducts.map((category) => (
                             <option key={category.id} value={category.id}>
@@ -83,8 +84,8 @@ export default function AddProductForm() {
                     <label className="text-sm font-medium text-black">
                         Company<span className="text-red-500">*</span>
                     </label>
-                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white" required>
-                        <option >Choose company</option>
+                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black" required>
+                        <option value=""  hidden >Choose company</option>
                         {companyProducts.map((company) => (
                             <option key={company.id} value={company.id}>
                                 {company.name}
@@ -97,8 +98,8 @@ export default function AddProductForm() {
                     <label className="text-sm font-medium text-black">
                         Division<span className="text-red-500">*</span>
                     </label>
-                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white">
-                        <option >Choose division</option>
+                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black" required>
+                        <option value="" hidden>Choose division</option>
                         {divisonProducts.map((division) => (
                             <option key={division.id} value={division.id}>
                                 {division.name}
@@ -111,8 +112,8 @@ export default function AddProductForm() {
                     <label className="text-sm font-medium text-black">
                         Segment<span className="text-red-500">*</span>
                     </label>
-                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white" required>
-                        <option >Choose segment</option>
+                    <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black" required>
+                        <option value=""  hidden >Choose segment</option>
                         {segmentProducts.map((segment) => (
                             <option key={segment.id} value={segment.id}>
                                 {segment.name}
@@ -125,7 +126,7 @@ export default function AddProductForm() {
 
             <div>
                 <label className="text-sm font-medium text-black">
-                    Description<span className="text-red-500">*</span>
+                    Description
                 </label>
 
                 <TipTapEditor />
