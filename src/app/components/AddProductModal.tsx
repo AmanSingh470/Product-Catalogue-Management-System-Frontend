@@ -11,7 +11,7 @@ export default function AddProductModal() {
             <div
                 className="bg-white w-full lg:w-1/2 xl:w-1/2 2xl:w-1/2 h-full lg:h-[90vh] xl:h-[90vh] 2xl:h-[90vh] rounded-xl shadow-xl flex flex-col">
 
-                <div className="flex justify-between items-center p-4 border-b">
+                <div className="flex justify-between items-center p-4 border-b text-black">
                     <h2 id="addProductModalTitle" className="text-lg font-bold">Add Product</h2>
                     <button id="close-large-add-product-modal" className="text-2xl font-bold" onClick={closeModal}>&times;</button>
                 </div>
@@ -20,7 +20,7 @@ export default function AddProductModal() {
                     <form id="add-product-form" className="space-y-5">
 
                         <div>
-                            <label className="text-sm font-medium">
+                            <label className="text-sm font-medium text-black">
                                 Title
                             </label>
                             <p className="text-xs text-gray-400 mb-1">Brand Vehicle product name</p>
@@ -45,7 +45,7 @@ export default function AddProductModal() {
                             </div>
 
                             <div>
-                                <label className="text-sm font-medium ">
+                                <label className="text-sm font-medium text-black">
                                     Company<span className="text-red-500">*</span>
                                 </label>
                                 <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm text-black">
