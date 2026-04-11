@@ -36,14 +36,14 @@ export default function Toolbar() {
                     </div>
                 </div>
 
-                <div id="small-grid-list"
+                <div id="grid-list"
                     className="lg:hidden xl:hidden 2xl:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-6">
 
                     <GridButton />
 
                     <ListButton />
 
-                    <button className="bg-red-500 rounded-2xl" id="small-add-product-btn" onClick={()=> openModal()}>
+                    <button className="bg-red-500 rounded-2xl" id="add-product-btn" onClick={()=> openModal()}>
                         <svg className="size-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

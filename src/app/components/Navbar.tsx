@@ -1,9 +1,13 @@
 "use client"
 
 import {useScrollNavbar} from "@/app/hooks/useScrollNavbar";
+import { useNotification } from "@/app/context/notification-context";
+import { useProfile } from "@/app/context/profile-context";
 
 export default function Navbar() {
     const scrolled = useScrollNavbar();
+    const { setOpen } = useNotification();
+    const { setProfileOpen } = useProfile();
     return (
         <nav id="navbar"
             className={`flex justify-between fixed w-full top-0 z-50 h-15 transition-all duration-300 ${scrolled?"bg-white":"bg-transparent"}`}>
@@ -43,15 +47,15 @@ export default function Navbar() {
                 </div>
 
                 <h1 id="main-heading"
-                    className={`text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-bold ${scrolled?"text-red-500":"text-white"}`}>
+                    className={`text-sm sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-bold ${scrolled?"text-red-500":"text-white"}`}>
                     Product Catalogue Management System
                 </h1>
             </div>
-            <div className="flex p-3 justify-evenly">
-                <button className={`cursor-pointer ${scrolled?"block":"hidden"}`}>
+            <div className="flex p-3 justify-evenly relative w-40">
+                <button className={`cursor-pointer ${scrolled?"block":"hidden"}`} onClick={() => setOpen(true)}>
                     <img className="size-6 header-action" src="/assets/images/bell-icon.svg" alt="" />
                 </button>
-                <button className={`cursor-pointer ${scrolled?"block":"hidden"}`}>
+                <button className={`cursor-pointer ${scrolled?"block":"hidden"}`} onClick={() => setProfileOpen(true)}>
                     <img className="size-6 header-action" src="/assets/images/profile-icon.svg" alt="" />
                 </button>
             </div>

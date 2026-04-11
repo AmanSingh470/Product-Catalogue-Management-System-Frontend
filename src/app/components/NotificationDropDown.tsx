@@ -1,41 +1,38 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useNotification } from "@/app/context/notification-context";
 
 export default function NotificationDropDown() {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const { open, setOpen } = useNotification();
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  // Close on outside click
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [open]);
+
+  if (!open) return null;
 
   return (
-    <div className="relative" ref={ref}>
-      {/* 🔔 Trigger Button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="p-2 rounded-lg hover:bg-gray-100 transition"
-      >
-        🔔
-      </button>
 
-      {/* 📦 Modal */}
-      {open && (
-        <div className="
-          absolute right-0 mt-2 
+    <div ref={ref}>
+
+      {(
+        <div
+          className="
+          right-0 mt-2 
           w-[90vw] max-w-sm 
           bg-white rounded-xl shadow-xl border
-          z-50
-        ">
-          
-          {/* Header */}
+          z-9999 fixed top-15 right-3"
+        >
+
           <div className="flex justify-between items-center px-4 py-3 border-b">
             <h2 className="font-semibold">Notifications</h2>
             <div className="flex gap-2 text-sm">
@@ -44,10 +41,8 @@ export default function NotificationDropDown() {
             </div>
           </div>
 
-          {/* List */}
           <div className="max-h-80 overflow-y-auto">
-            
-            {/* Item */}
+
             <div className="flex gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-gray-300"></div>
               <div className="flex-1 text-sm">
@@ -60,7 +55,6 @@ export default function NotificationDropDown() {
               <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
             </div>
 
-            {/* Item */}
             <div className="flex gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-orange-300"></div>
               <div className="flex-1 text-sm">
