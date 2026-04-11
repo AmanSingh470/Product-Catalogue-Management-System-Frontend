@@ -47,13 +47,12 @@ export default function AddProductForm() {
             <div>
                 <label className="text-sm font-medium text-black">
                     Title<span className="text-red-500">*</span>
-
                 </label>
                 <p className="text-xs text-gray-400 mb-1">Brand Vehicle product name</p>
 
                 <div className="relative bg-white">
                     <input type="text"
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none hover:border-black text-black"
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none hover:border-black text-black text-xs"
                         placeholder="Title"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
@@ -70,7 +69,7 @@ export default function AddProductForm() {
                         Category<span className="text-red-500">*</span>
                     </label>
                     <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black" required>
-                        <option value=""  hidden >Choose category</option>
+                        <option value="" hidden>Choose category</option>
 
                         {categoryProducts.map((category) => (
                             <option key={category.id} value={category.id}>

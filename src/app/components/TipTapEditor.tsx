@@ -6,6 +6,11 @@ import Underline from "@tiptap/extension-underline";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextAlign from "@tiptap/extension-text-align";
 import { JSX } from "react";
+import LeftAlign from "@/app/components/icons/LeftAlign";
+import CenterAlign from "@/app/components/icons/CenterAlign";
+import RightAlign from "@/app/components/icons/RightAlign";
+import List from "@/app/components/icons/List";
+import { useState } from "react";
 
 export default function TipTapEditor(): JSX.Element {
   const editor: Editor | null = useEditor({
@@ -24,6 +29,15 @@ export default function TipTapEditor(): JSX.Element {
     onUpdate: () => { },
   });
 
+  const [isActiveBold, setIsActiveBold] = useState(false);
+  const [isActiveItalic, setIsActiveItalic] = useState(false);
+  const [isActiveUnderline, setIsActiveUnderline] = useState(false);
+  const [isActiveBulletList, setIsActiveBulletList] = useState(false);
+  const [isActiveOrderedList, setIsActiveOrderedList] = useState(false);
+  const [isActiveLeftAlign, setIsActiveLeftAlign] = useState(false);
+  const [isActiveCenterAlign, setIsActiveCenterAlign] = useState(false);
+  const [isActiveRightAlign, setIsActiveRightAlign] = useState(false);
+
   if (!editor) return <></>;
 
   return (
@@ -31,78 +45,88 @@ export default function TipTapEditor(): JSX.Element {
       <div className="border border-gray-300 rounded-md overflow-hidden hover:border-black">
 
         {/* Toolbar */}
-        <div className="flex flex-wrap gap-2 p-2 text-sm justify-space-evenly">
-          <div className="size-5 text-center bg-white">
+        <div className="flex flex-wrap gap-2 p-2 text-sm justify-space-evenly text-black">
+
+          <div
+            onClick={() => {
+              editor.chain().focus().toggleBold().run()
+              if (isActiveBold === true) {
+                setIsActiveBold(false);
+              } else {
+                setIsActiveBold(true);
+              }
+            }}
+            className={`size-5 text-center text-bold cursor-pointer ${isActiveBold ? "bg-black text-white" : "bg-white text-black"}`}>
+            B
+          </div>
+          <div
+            onClick={() => {
+              editor.chain().focus().toggleItalic().run()
+              if (isActiveItalic === true) {
+                setIsActiveItalic(false);
+              } else {
+                setIsActiveItalic(true);
+              }
+            }}
+            className={`size-5 text-center italic cursor-pointer ${isActiveItalic ? "bg-black text-white" : "bg-white text-black"}`}>
+            I
+          </div>
+          <div
+            onClick={() => {
+              editor.chain().focus().toggleUnderline().run()
+              setIsActiveUnderline(!isActiveUnderline);
+            }}
+            className={`size-5 text-center underline cursor-pointer ${isActiveUnderline ? "bg-black text-white" : "bg-white text-black"}`}>
+            U
+          </div>
+          <div
+            onClick={() => {
+              editor.chain().focus().toggleBulletList().run();
+              setIsActiveBulletList(!isActiveBulletList);
+            }}
+            className={`size-5 text-center cursor-pointer ${isActiveBulletList ? "bg-black text-white" : "bg-white text-black"
+              }`}
+          >
+            <List
+              className="size-5"
+              color={isActiveBulletList ? "white" : "black"}
+            />
+          </div>
+          <div onClick={() => {
+            editor.chain().focus().toggleOrderedList().run()
+            setIsActiveOrderedList(!isActiveOrderedList);
+          }}
+            className={`size-5 text-center cursor-pointer ${isActiveOrderedList ? "bg-black text-white" : "bg-white text-black"}`}>
+            1.
+          </div>
+          <div
+            onClick={() => {
+              editor.chain().focus().setTextAlign("left").run()
+              setIsActiveLeftAlign(!isActiveLeftAlign);
+            }}
+            className={`size-5 text-center cursor-pointer ${isActiveLeftAlign ? "bg-black text-white" : "bg-white text-black"}`}>
             <button
               type="button"
-              onClick={() => editor.chain().focus().toggleBold().run()}
-              className={`font-bold`}
+              className={`cursor-pointer`}
             >
-              B
+              <LeftAlign className="size-5" color={`${isActiveLeftAlign ? "white" : "black"}`} />
             </button>
           </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().toggleItalic().run()}
-              className={`italic`}
-            >
-              I
-            </button>
+          <div
+            onClick={() => {
+              editor.chain().focus().setTextAlign("center").run()
+              setIsActiveCenterAlign(!isActiveCenterAlign);
+            }}
+            className={`size-5 text-center cursor-pointer ${isActiveCenterAlign ? "bg-black text-white" : "bg-white text-black"}`}>
+            <CenterAlign className="size-5" color={`${isActiveCenterAlign ? "white" : "black"}`} />
           </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().toggleUnderline().run()}
-              className={`underline`}
-            >
-              U
-            </button>
-          </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().toggleBulletList().run()}
-              className={`bullet-list`}
-            >
-              •
-            </button>
-          </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().toggleOrderedList().run()}
-              className={`ordered-list`}
-            >
-              1.
-            </button>
-          </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().setTextAlign("left").run()}
-              className={`text-left`}
-            >
-              L
-            </button>
-          </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().setTextAlign("center").run()}
-              className={`text-center`}
-            >
-              C
-            </button>
-          </div>
-          <div className="size-5 text-center bg-white">
-            <button
-              type="button"
-              onClick={() => editor.chain().focus().setTextAlign("right").run()}
-              className={`text-right`}
-            >
-              R
-            </button>
+          <div
+            onClick={() => {
+              editor.chain().focus().setTextAlign("right").run()
+              setIsActiveRightAlign(!isActiveRightAlign);
+            }}
+            className={`size-5 text-center cursor-pointer ${isActiveRightAlign ? "bg-black text-white" : "bg-white text-black"}`} >
+            <RightAlign className="size-5" color={`${isActiveRightAlign ? "white" : "black"}`} />
           </div>
         </div>
 

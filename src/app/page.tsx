@@ -14,7 +14,7 @@ import { ProductProvider } from "./context/product-context";
 
 export default function Home() {
   return (
-    <div className="bg-[#F5F6F8]">
+    <div className="bg-[#F5F6F8] text-black">
     <Navbar />
     <HeroSection/>
     <ViewProvider>

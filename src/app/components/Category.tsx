@@ -38,14 +38,15 @@ export default function Category({ name, productCount, type }: Props) {
   return (
     <div className="flex flex-col">
       <div className="flex justify-between">
-        <div className="flex">
+        <label className="flex cursor-pointer">
           <input
             type="checkbox"
             checked={selected.includes(name)}
             onChange={handleCheckboxChange}
+            className="cursor-pointer"
           />
-          <div className="ml-2">{name}</div>
-        </div>
+          <span className="ml-2">{name}</span>
+        </label>
         <div>({productCount})</div>
       </div>
     </div>

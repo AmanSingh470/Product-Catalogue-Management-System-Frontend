@@ -3,12 +3,11 @@
 import {useScrollNavbar} from "@/app/hooks/useScrollNavbar";
 
 export default function Navbar() {
-    // const scrolled = useScrollNavbar();
     const scrolled = useScrollNavbar();
     return (
         <nav id="navbar"
             className={`flex justify-between fixed w-full top-0 z-50 h-15 transition-all duration-300 ${scrolled?"bg-white":"bg-transparent"}`}>
-            <div className="p-3 flex justify-center items-center">
+            <div className="p-3 flex justify-between items-center">
                 <div className={`mr-2 ${scrolled?"text-red-500":"text-white"}`}>
                     <svg className="size-6 2xl:size-8 fill-current" viewBox="24 24 132 122" xmlns="http://www.w3.org/2000/svg">
 
@@ -48,8 +47,7 @@ export default function Navbar() {
                     Product Catalogue Management System
                 </h1>
             </div>
-            <div className="flex-1"></div>
-            <div className="flex p-3 w-[10%] justify-evenly">
+            <div className="flex p-3 justify-evenly">
                 <button className={`cursor-pointer ${scrolled?"block":"hidden"}`}>
                     <img className="size-6 header-action" src="/assets/images/bell-icon.svg" alt="" />
                 </button>
