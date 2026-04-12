@@ -28,7 +28,7 @@ export default function ProductView() {
                     <div className="grid grid-cols-8 text-sm text-black px-4 py-2">
                         <span className="col-span-3">Product name</span>
                         <span className="col-span-2">Segment</span>
-                        <span className="col-span-2">Division</span>
+                        <span className="col-span-2">Divison</span>
                         <span className="col-span-1"></span>
                     </div>
 

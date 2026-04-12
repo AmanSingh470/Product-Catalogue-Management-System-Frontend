@@ -4,7 +4,7 @@ import { useProducts } from "@/app/context/product-context";
 interface Props {
   name: string;
   productCount: number;
-  type: "company" | "segment" | "division";
+  type: "company" | "segment" | "divison";
 }
 
 export default function Category({ name, productCount, type }: Props) {
@@ -13,14 +13,14 @@ export default function Category({ name, productCount, type }: Props) {
     setSelectedCompanies,
     selectedSegments,
     setSelectedSegments,
-    selectedDivisions,
-    setSelectedDivisions
+    selectedDivisons,
+    setSelectedDivisons
   } = useProducts();
 
   const getState = (): [string[], (value: React.SetStateAction<string[]>) => void] => {
     if (type === "company") return [selectedCompanies, setSelectedCompanies];
     if (type === "segment") return [selectedSegments, setSelectedSegments];
-    return [selectedDivisions, setSelectedDivisions];
+    return [selectedDivisons, setSelectedDivisons];
   };
 
   const [selected, setSelected] = getState();

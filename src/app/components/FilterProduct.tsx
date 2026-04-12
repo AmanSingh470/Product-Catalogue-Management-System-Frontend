@@ -61,7 +61,7 @@ export default function FilterProduct() {
                                 <div>NO. PRODUCTS</div>
                             </div>
                             {divisonProducts.map((item) => (
-                                <Category key={item.id} {...item} type="division" />
+                                <Category key={item.id} {...item} type="divison" />
                             ))}
                         </div>
                     </div>

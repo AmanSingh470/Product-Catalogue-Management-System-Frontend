@@ -25,7 +25,7 @@ export default function Toolbar() {
         :
         (
             <>
-                <div className="flex justify-evenly lg:hidden xl:hidden 2xl:hidden flex-col sticky h-35 md:h-32 top-15 z-50 bg-[#F5F6F8] m-2">
+                <div className="flex justify-evenly lg:hidden xl:hidden 2xl:hidden flex-col sticky h-35 md:h-32 top-15 z-50 bg-[#F5F6F8]">
 
                     <SearchProduct />
                     <div className="flex justify-evenly mb-1">

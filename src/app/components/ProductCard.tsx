@@ -3,7 +3,7 @@ import { useView } from "@/app/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-export default function ProductCard({ title, category, type, image }: any) {
+export default function ProductCard({ title, category, divison, image }: any) {
     const { view } = useView();
 
     const { ref, inView } = useInView({
@@ -47,7 +47,7 @@ export default function ProductCard({ title, category, type, image }: any) {
                         </div>
 
                         <div className="text-sm text-gray-500 col-span-2">
-                            {type}
+                            {divison}
                         </div>
 
                         <div className="flex justify-end text-gray-400 col-span-1">
