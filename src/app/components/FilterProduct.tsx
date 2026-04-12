@@ -6,6 +6,7 @@ import productDivisonData from "@/app/data/products-divison.json";
 import productSegmentData from "@/app/data/products-segment.json";
 import productCompanyData from "@/app/data/products-company.json";
 import Category from "@/app/components/Category";
+import AllCards from "@/app/components/AllCards";
 
 export default function FilterProduct() {
     const [allProducts, setAllProducts] = useState<any[]>([]);
@@ -42,66 +43,9 @@ export default function FilterProduct() {
             return (
                 <div id="filter-all"
                     className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "all" ? "" : "hidden"}`}>
-                    <div className="flex bg-white h-30 w-full mb-2 p-2 ">
-                        <div className="basis-1/3 p-2">
-                            <img src="assets/images/card.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-                        </div>
-                        <div className="basis-2/3">
-                            <h3 className="font-bold text-sm">
-                                Modules & Polymer Products (120)
-                            </h3>
-                            <p className="text-xs">
-                                aman ipsum dolor sit amet consectetur adipisicing elit.
-                                Dolorum aliquam laboriosam cupiditate reiciendis. Dicta
-                                omnis quam ipsum. Eius, hic ipsam?r
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex bg-white h-30 w-full mb-2 p-2 ">
-                        <div className="basis-1/3 p-2">
-                            <img src="assets/images/card.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-                        </div>
-                        <div className="basis-2/3">
-                            <h3 className="font-bold text-sm">
-                                Modules & Polymer Products (120)
-                            </h3>
-                            <p className="text-xs">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Dolorum aliquam laboriosam cupiditate reiciendis. Dicta
-                                omnis quam ipsum. Eius, hic ipsam?r
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex bg-white h-30 w-full mb-2 p-2 ">
-                        <div className="basis-1/3 p-2">
-                            <img src="assets/images/card.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-                        </div>
-                        <div className="basis-2/3">
-                            <h3 className="font-bold text-sm">
-                                Modules & Polymer Products (120)
-                            </h3>
-                            <p className="text-xs">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Dolorum aliquam laboriosam cupiditate reiciendis. Dicta
-                                omnis quam ipsum. Eius, hic ipsam?r
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex bg-white h-30 w-full mb-2 p-2 ">
-                        <div className="basis-1/3 p-2">
-                            <img src="assets/images/card.jpg" alt="" className="rounded-md w-full h-full object-cover" />
-                        </div>
-                        <div className="basis-2/3">
-                            <h3 className="font-bold text-sm">
-                                Modules & Polymer Products (120)
-                            </h3>
-                            <p className="text-xs">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Dolorum aliquam laboriosam cupiditate reiciendis. Dicta
-                                omnis quam ipsum. Eius, hic ipsam?r
-                            </p>
-                        </div>
-                    </div>
+                    {allProducts.map((item) => (
+                        <AllCards key={item.id} {...item} type="all" />
+                    ))}
                 </div>
             );
 

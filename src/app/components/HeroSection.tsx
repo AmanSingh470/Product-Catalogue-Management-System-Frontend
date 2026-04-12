@@ -4,7 +4,7 @@ import { useScrollNavbar } from "../hooks/useScrollNavbar";
 export default function HeroSection() {
     const scrolled = useScrollNavbar();
     return (    
-        <div className="h-screen bg-[url('/assets/images/background.png')] bg-cover z-48 lg:mb-10 xl:mb-13 2xl:mb-15">
+        <div className="relative h-screen bg-[url('/assets/images/background.png')] bg-cover lg:mb-10 xl:mb-13 2xl:mb-15 z-49">
             <div id="hero-section" className="w-full h-full flex flex-col z-49 text-white items-center justify-end">
                 <div className="z-49 basis-1/2 flex items-center">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center">Welcome to

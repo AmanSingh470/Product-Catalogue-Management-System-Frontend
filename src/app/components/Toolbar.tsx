@@ -37,7 +37,7 @@ export default function Toolbar() {
                 </div>
 
                 <div id="grid-list"
-                    className="lg:hidden xl:hidden 2xl:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-6">
+                    className="absolute lg:hidden xl:hidden 2xl:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-1 bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-6">
 
                     <GridButton />
 
