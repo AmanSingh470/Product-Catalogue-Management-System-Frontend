@@ -51,7 +51,7 @@ export default function Navbar() {
                     Product Catalogue Management System
                 </h1>
             </div>
-            <div className="flex p-3 justify-evenly relative w-40">
+            <div className="hidden p-3 justify-evenly relative w-40">
                 <button className={`cursor-pointer ${scrolled?"block":"hidden"}`} onClick={() => setOpen(true)}>
                     <img className="size-6 header-action" src="/assets/images/bell-icon.svg" alt="" />
                 </button>

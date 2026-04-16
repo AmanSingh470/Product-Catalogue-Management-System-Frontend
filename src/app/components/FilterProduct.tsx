@@ -1,36 +1,34 @@
 "use client";
 import { useFilter } from "@/app/context/filter-context";
 import { useState, useEffect } from "react";
-import productAllData from "@/app/data/products-all.json";
-import productDivisonData from "@/app/data/products-divison.json";
-import productSegmentData from "@/app/data/products-segment.json";
-import productCompanyData from "@/app/data/products-company.json";
 import Category from "@/app/components/Category";
 import AllCards from "@/app/components/AllCards";
 
 export default function FilterProduct() {
-    const [allProducts, setAllProducts] = useState<any[]>([]);
-    const [divisonProducts, setDivisonProducts] = useState<any[]>([]);
-    const [segmentProducts, setSegmentProducts] = useState<any[]>([]);
-    const [companyProducts, setCompanyProducts] = useState<any[]>([]);
-
+    
     const { activeFilter } = useFilter();
+    
+    const { allProducts, setAllProducts } = useFilter();
+    const { divisonProducts, setDivisonProducts } = useFilter();
+    const { segmentProducts, setSegmentProducts } = useFilter();
+    const { companyProducts, setCompanyProducts } = useFilter();
+
     useEffect(() => {
         switch (activeFilter) {
             case "all":
-                setAllProducts(productAllData);
+                setAllProducts(allProducts);
                 break;
 
             case "divison":
-                setDivisonProducts(productDivisonData);
+                setDivisonProducts(divisonProducts);
                 break;
 
             case "segment":
-                setSegmentProducts(productSegmentData);
+                setSegmentProducts(segmentProducts);
                 break;
 
             case "company":
-                setCompanyProducts(productCompanyData);
+                setCompanyProducts(companyProducts);
                 break;
 
             default:

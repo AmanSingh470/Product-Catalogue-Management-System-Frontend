@@ -18,21 +18,15 @@ interface ProductContextType {
 
 const ProductContext = createContext<ProductContextType | null>(null);
 
-export function ProductProvider({ children }: { children: React.ReactNode }) {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+export function ProductProvider({ children, initialProducts }: { children: React.ReactNode; initialProducts: Product[] }) {
+  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   const [searchQuery, setSearchQuery] = useState<string>("");
   
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
   const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
   const [selectedDivisons, setSelectedDivisons] = useState<string[]>([]);
-
-  // load data
-  useEffect(() => {
-    setProducts(productsData as unknown as Product[]);
-    setFilteredProducts(productsData as unknown as Product[]);
-  }, []);
 
   // MAIN FILTER LOGIC
   useEffect(() => {

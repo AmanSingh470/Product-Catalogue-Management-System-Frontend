@@ -1,13 +1,16 @@
 "use client";
 import { useProducts } from "@/app/context/product-context";
+import { useFilter } from "@/app/context/filter-context";
+import { useState } from "react";
 
 interface Props {
   name: string;
-  productCount: number;
+  count: any;
   type: "company" | "segment" | "divison";
+  productCount?: any;
 }
 
-export default function Category({ name, productCount, type }: Props) {
+export default function Category({ name, type }: Props) {
   const {
     selectedCompanies,
     setSelectedCompanies,
@@ -17,9 +20,16 @@ export default function Category({ name, productCount, type }: Props) {
     setSelectedDivisons
   } = useProducts();
 
+  const { companyCount, segmentCount, divisonCount, categoryCount } = useFilter();
+  const [count, setCount] = useState<any>(0);
+
   const getState = (): [string[], (value: React.SetStateAction<string[]>) => void] => {
-    if (type === "company") return [selectedCompanies, setSelectedCompanies];
-    if (type === "segment") return [selectedSegments, setSelectedSegments];
+    if (type === "company") {
+      return [selectedCompanies, setSelectedCompanies];
+    }
+    if (type === "segment") {
+      return [selectedSegments, setSelectedSegments];
+    }
     return [selectedDivisons, setSelectedDivisons];
   };
 
@@ -33,9 +43,13 @@ export default function Category({ name, productCount, type }: Props) {
         prev.filter((item) => item !== name)
       );
     }
+    if (type === "company") setCount(companyCount);
+    if (type === "segment") setCount(segmentCount);
+    if (type === "divison") setCount(divisonCount);
   };
 
   return (
+
     <div className="flex flex-col">
       <div className="flex justify-between">
         <label className="flex cursor-pointer">
@@ -47,7 +61,7 @@ export default function Category({ name, productCount, type }: Props) {
           />
           <span className="ml-2">{name}</span>
         </label>
-        <div>({productCount})</div>
+        <div>{count}</div>
       </div>
     </div>
   );

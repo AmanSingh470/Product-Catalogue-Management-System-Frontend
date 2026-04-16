@@ -1,9 +1,9 @@
 interface Props {
-    title: string;
+    name: string;
     count: number;
     description: string;
 }
-export default function AllCards({ title, count, description }: Props) {
+export default function AllCards({ name, count=5, description="abc" }: Props) {
 
     return (
         <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden">
@@ -12,7 +12,7 @@ export default function AllCards({ title, count, description }: Props) {
             </div>
             <div className="basis-2/3">
                 <h3 className="font-bold text-sm">
-                    {title} ({count})
+                    {name} ({count})
                 </h3>
                 <p className="text-xs line-clamp-4">
                     {description}

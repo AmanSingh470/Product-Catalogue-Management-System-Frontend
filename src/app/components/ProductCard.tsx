@@ -18,7 +18,7 @@ export default function ProductCard({ title, category, divison, image }: any) {
                     <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item">
                         
                         <Image
-                            src={image}
+                            src="/assets/images/card.jpg"
                             alt={title}
                             fill
                             className="rounded object-cover"
@@ -36,7 +36,7 @@ export default function ProductCard({ title, category, divison, image }: any) {
                     <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition">
                         
                         <div className="flex items-center col-span-3 gap-2">
-                            <img src={image} className="w-10 h-10 rounded object-cover" />
+                            <img src="/assets/images/card.jpg" className="w-10 h-10 rounded object-cover" />
                             <span className="text-xs font-medium text-gray-800">
                                 {title}
                             </span>
