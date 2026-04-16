@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import ProductCard from "@/app/components/ProductCard";
 import { useView } from "@/app/context/view-context";
 import { useProducts } from "@/app/context/product-context";
