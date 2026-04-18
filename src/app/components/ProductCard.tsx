@@ -18,7 +18,7 @@ export default function ProductCard({ title, category, division, image }: any) {
                     <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
                         
                         <Image
-                            src="/assets/images/card.jpg"
+                            src="/assets/images/card2.png"
                             alt={title}
                             fill
                             className="rounded object-cover"
