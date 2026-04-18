@@ -11,8 +11,8 @@ interface ProductContextType {
   setSelectedCompanies: React.Dispatch<React.SetStateAction<string[]>>;
   selectedSegments: string[];
   setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedDivisons: string[];
-  setSelectedDivisons: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedDivisions: string[];
+  setSelectedDivisions: React.Dispatch<React.SetStateAction<string[]>>;
    resetFilters: () => void;
 }
 
@@ -26,7 +26,7 @@ export function ProductProvider({ children, initialProducts }: { children: React
   
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
   const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
-  const [selectedDivisons, setSelectedDivisons] = useState<string[]>([]);
+  const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
 
   // MAIN FILTER LOGIC
   useEffect(() => {
@@ -48,15 +48,15 @@ export function ProductProvider({ children, initialProducts }: { children: React
         selectedSegments.length === 0 ||
         selectedSegments.includes(item.segment);
 
-      const divisonMatch =
-        selectedDivisons.length === 0 ||
-        selectedDivisons.includes(item.divison);
+      const divisionMatch =
+        selectedDivisions.length === 0 ||
+        selectedDivisions.includes(item.division);
 
-      return companyMatch && segmentMatch && divisonMatch;
+      return companyMatch && segmentMatch && divisionMatch;
     });
 
     setFilteredProducts(result);
-  }, [searchQuery, selectedCompanies, selectedSegments, selectedDivisons, products]);
+  }, [searchQuery, selectedCompanies, selectedSegments, selectedDivisions, products]);
 
   return (
     <ProductContext.Provider
@@ -68,13 +68,13 @@ export function ProductProvider({ children, initialProducts }: { children: React
         setSelectedCompanies,
         selectedSegments,
         setSelectedSegments,
-        selectedDivisons,
-        setSelectedDivisons,
+        selectedDivisions,
+        setSelectedDivisions,
         resetFilters: () => {
           setSearchQuery("");
           setSelectedCompanies([]);
           setSelectedSegments([]);
-          setSelectedDivisons([]);
+          setSelectedDivisions([]);
         }
       }}
     >

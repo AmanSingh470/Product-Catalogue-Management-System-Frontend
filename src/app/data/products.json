@@ -4,7 +4,7 @@
     "title": "Advanced Surface Treatment (AST)",
     "category": "Decoration Technologies",
     "segment": "Vision Systems",
-    "divison": "Surface Engineering",
+    "division": "Surface Engineering",
     "company": "Motherson Group",
     "image": "/assets/images/card.jpg"
   },
@@ -13,7 +13,7 @@
     "title": "Laser Marking",
     "category": "Industrial Tech",
     "segment": "Automation",
-    "divison": "Manufacturing",
+    "division": "Manufacturing",
     "company": "Tata Motors",
     "image": "/assets/images/card.jpg"
   },
@@ -22,7 +22,7 @@
     "title": "3D Vision Inspection",
     "category": "Quality Control",
     "segment": "Vision Systems",
-    "divison": "Inspection",
+    "division": "Inspection",
     "company": "Bosch",
     "image": "/assets/images/card.jpg"
   },
@@ -31,7 +31,7 @@
     "title": "Robotic Welding",
     "category": "Industrial Tech",
     "segment": "Robotics",
-    "divison": "Manufacturing",
+    "division": "Manufacturing",
     "company": "Mahindra & Mahindra",
     "image": "/assets/images/card.jpg"
   },
@@ -40,7 +40,7 @@
     "title": "Smart Assembly Line",
     "category": "Automation",
     "segment": "Automation",
-    "divison": "Production",
+    "division": "Production",
     "company": "Reliance Industries",
     "image": "/assets/images/card.jpg"
   },
@@ -49,7 +49,7 @@
     "title": "AI Quality Check",
     "category": "Quality Control",
     "segment": "AI Systems",
-    "divison": "Inspection",
+    "division": "Inspection",
     "company": "Motherson Group",
     "image": "/assets/images/card.jpg"
   },
@@ -58,7 +58,7 @@
     "title": "Paint Shop Automation",
     "category": "Surface Tech",
     "segment": "Automation",
-    "divison": "Surface Engineering",
+    "division": "Surface Engineering",
     "company": "Tata Motors",
     "image": "/assets/images/card.jpg"
   },
@@ -67,7 +67,7 @@
     "title": "Industrial IoT Dashboard",
     "category": "Digital Tech",
     "segment": "IoT",
-    "divison": "Monitoring",
+    "division": "Monitoring",
     "company": "Bosch",
     "image": "/assets/images/card.jpg"
   },
@@ -76,7 +76,7 @@
     "title": "Automated Packaging",
     "category": "Logistics",
     "segment": "Automation",
-    "divison": "Packaging",
+    "division": "Packaging",
     "company": "Mahindra & Mahindra",
     "image": "/assets/images/card.jpg"
   },
@@ -85,7 +85,7 @@
     "title": "Energy Monitoring System",
     "category": "Energy Tech",
     "segment": "IoT",
-    "divison": "Monitoring",
+    "division": "Monitoring",
     "company": "Reliance Industries",
     "image": "/assets/images/card.jpg"
   },
@@ -94,7 +94,7 @@
     "title": "Thermal Coating System",
     "category": "Surface Tech",
     "segment": "Coating",
-    "divison": "Surface Engineering",
+    "division": "Surface Engineering",
     "company": "Motherson Group",
     "image": "/assets/images/card.jpg"
   },
@@ -103,7 +103,7 @@
     "title": "Predictive Maintenance AI",
     "category": "AI Systems",
     "segment": "AI Systems",
-    "divison": "Maintenance",
+    "division": "Maintenance",
     "company": "Tata Motors",
     "image": "/assets/images/card.jpg"
   },
@@ -112,7 +112,7 @@
     "title": "Warehouse Robotics",
     "category": "Logistics",
     "segment": "Robotics",
-    "divison": "Storage",
+    "division": "Storage",
     "company": "Bosch",
     "image": "/assets/images/card.jpg"
   },
@@ -121,7 +121,7 @@
     "title": "Smart Conveyor System",
     "category": "Automation",
     "segment": "Automation",
-    "divison": "Production",
+    "division": "Production",
     "company": "Mahindra & Mahindra",
     "image": "/assets/images/card.jpg"
   }

@@ -1,8 +1,7 @@
 "use client";
-import { init } from "next/dist/compiled/webpack/webpack";
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export type FilterType = "all" | "divison" | "company" | "segment";
+export type FilterType = "all" | "division" | "company" | "segment";
 
 type FilterContextType = {
   activeFilter: FilterType;
@@ -11,13 +10,15 @@ type FilterContextType = {
   openModal: () => void;
   closeModal: () => void;
   allProducts: any[];
-  divisonProducts: any[];
+  divisionProducts: any[];
   segmentProducts: any[];
   companyProducts: any[];
-  setDivisonProducts: React.Dispatch<React.SetStateAction<any[]>>;
+  categoryProducts: any[],
+  setDivisionProducts: React.Dispatch<React.SetStateAction<any[]>>;
   setSegmentProducts: React.Dispatch<React.SetStateAction<any[]>>;
   setCompanyProducts: React.Dispatch<React.SetStateAction<any[]>>;
   setAllProducts: React.Dispatch<React.SetStateAction<any[]>>;
+  setCategoryProducts: React.Dispatch<React.SetStateAction<any[]>>;
 };
 
 const FilterContext = createContext<FilterContextType | null>(null);
@@ -30,9 +31,10 @@ export function FilterProvider({ children, initialFilters }: { children: React.R
     const closeModal = () => setIsModalOpen(false);
 
     const [allProducts, setAllProducts] = useState<any[]>(initialFilters.all);
-    const [divisonProducts, setDivisonProducts] = useState<any[]>(initialFilters.divisons);
+    const [divisionProducts, setDivisionProducts] = useState<any[]>(initialFilters.divisions);
     const [segmentProducts, setSegmentProducts] = useState<any[]>(initialFilters.segments);
     const [companyProducts, setCompanyProducts] = useState<any[]>(initialFilters.companies);
+    const [categoryProducts, setCategoryProducts] = useState<any[]>(initialFilters.categories);
 
   return (
     <FilterContext.Provider 
@@ -43,13 +45,15 @@ export function FilterProvider({ children, initialFilters }: { children: React.R
         openModal,
         closeModal,
         allProducts,
-        divisonProducts,
+        divisionProducts,
         segmentProducts,
         companyProducts,
+        categoryProducts,
         setAllProducts,
-        setDivisonProducts,
+        setDivisionProducts,
         setSegmentProducts,
-        setCompanyProducts
+        setCompanyProducts,
+        setCategoryProducts
         }}>
       {children}
     </FilterContext.Provider>

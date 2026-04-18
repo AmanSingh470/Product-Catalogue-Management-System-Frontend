@@ -3,7 +3,7 @@ import { useView } from "@/app/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-export default function ProductCard({ title, category, divison, image }: any) {
+export default function ProductCard({ title, category, division, image }: any) {
     const { view } = useView();
 
     const { ref, inView } = useInView({
@@ -15,7 +15,7 @@ export default function ProductCard({ title, category, divison, image }: any) {
         <div ref={ref}>
             {inView && (
                 view === "grid" ? (
-                    <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item">
+                    <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
                         
                         <Image
                             src="/assets/images/card.jpg"
@@ -33,7 +33,7 @@ export default function ProductCard({ title, category, divison, image }: any) {
 
                     </div>
                 ) : (
-                    <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition">
+                    <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition cursor-pointer">
                         
                         <div className="flex items-center col-span-3 gap-2">
                             <img src="/assets/images/card.jpg" className="w-10 h-10 rounded object-cover" />
@@ -47,7 +47,7 @@ export default function ProductCard({ title, category, divison, image }: any) {
                         </div>
 
                         <div className="text-sm text-gray-500 col-span-2">
-                            {divison}
+                            {division}
                         </div>
 
                         <div className="flex justify-end text-gray-400 col-span-1">

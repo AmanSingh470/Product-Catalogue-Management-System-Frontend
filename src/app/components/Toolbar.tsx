@@ -30,7 +30,7 @@ export default function Toolbar() {
                     <SearchProduct />
                     <div className="flex justify-evenly mb-1">
                         <FilterProductButton label="All" value="all" openModalOnClick />
-                        <FilterProductButton label="By Divison" value="divison" openModalOnClick />
+                        <FilterProductButton label="By Division" value="division" openModalOnClick />
                         <FilterProductButton label="By Company" value="company" openModalOnClick />
                         <FilterProductButton label="By Segment" value="segment" openModalOnClick />
                     </div>

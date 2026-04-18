@@ -2,7 +2,7 @@
 import { useFilter } from "@/app/context/filter-context";
 import { useProducts } from "@/app/context/product-context";
 
-type TabType = "all" | "divison" | "company" | "segment";
+type TabType = "all" | "division" | "company" | "segment";
 
 export default function FilterProductButton(
 {

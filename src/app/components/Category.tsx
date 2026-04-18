@@ -1,12 +1,10 @@
 "use client";
 import { useProducts } from "@/app/context/product-context";
-import { useFilter } from "@/app/context/filter-context";
-import { useState } from "react";
 
 interface Props {
   name: string;
   count: any;
-  type: "company" | "segment" | "divison";
+  type: "company" | "segment" | "division";
   productCount?: any;
 }
 
@@ -16,12 +14,10 @@ export default function Category({ name, type }: Props) {
     setSelectedCompanies,
     selectedSegments,
     setSelectedSegments,
-    selectedDivisons,
-    setSelectedDivisons
+    selectedDivisions,
+    setSelectedDivisions
   } = useProducts();
 
-  const { companyCount, segmentCount, divisonCount, categoryCount } = useFilter();
-  const [count, setCount] = useState<any>(0);
 
   const getState = (): [string[], (value: React.SetStateAction<string[]>) => void] => {
     if (type === "company") {
@@ -30,7 +26,7 @@ export default function Category({ name, type }: Props) {
     if (type === "segment") {
       return [selectedSegments, setSelectedSegments];
     }
-    return [selectedDivisons, setSelectedDivisons];
+    return [selectedDivisions, setSelectedDivisions];
   };
 
   const [selected, setSelected] = getState();
@@ -43,9 +39,6 @@ export default function Category({ name, type }: Props) {
         prev.filter((item) => item !== name)
       );
     }
-    if (type === "company") setCount(companyCount);
-    if (type === "segment") setCount(segmentCount);
-    if (type === "divison") setCount(divisonCount);
   };
 
   return (
@@ -61,7 +54,7 @@ export default function Category({ name, type }: Props) {
           />
           <span className="ml-2">{name}</span>
         </label>
-        <div>{count}</div>
+        <div>0</div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function FilterProduct() {
     const { activeFilter } = useFilter();
     
     const { allProducts, setAllProducts } = useFilter();
-    const { divisonProducts, setDivisonProducts } = useFilter();
+    const { divisionProducts, setDivisionProducts } = useFilter();
     const { segmentProducts, setSegmentProducts } = useFilter();
     const { companyProducts, setCompanyProducts } = useFilter();
 
@@ -19,8 +19,8 @@ export default function FilterProduct() {
                 setAllProducts(allProducts);
                 break;
 
-            case "divison":
-                setDivisonProducts(divisonProducts);
+            case "division":
+                setDivisionProducts(divisionProducts);
                 break;
 
             case "segment":
@@ -47,19 +47,19 @@ export default function FilterProduct() {
                 </div>
             );
 
-        case "divison":
+        case "division":
 
             return (
                 (
-                    <div id="filter-divison"
-                        className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "divison" ? "" : "hidden"}`}>
+                    <div id="filter-division"
+                        className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "division" ? "" : "hidden"}`}>
                         <div className="w-full">
                             <div className="flex justify-between mb-2 font-bold text-xs">
-                                <div>DIVISONS</div>
+                                <div>DIVISIONS</div>
                                 <div>NO. PRODUCTS</div>
                             </div>
-                            {divisonProducts.map((item) => (
-                                <Category key={item.id} {...item} type="divison" />
+                            {divisionProducts.map((item) => (
+                                <Category key={item.id} {...item} type="division" />
                             ))}
                         </div>
                     </div>

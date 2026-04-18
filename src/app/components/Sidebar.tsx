@@ -14,7 +14,7 @@ export default function Sidebar() {
                 </div>
                 <div className="flex justify-evenly mb-4">
                     <FilterProductButton label="All" value="all" />
-                    <FilterProductButton label="By Divison" value="divison" />
+                    <FilterProductButton label="By Division" value="division" />
                     <FilterProductButton label="By Company" value="company" />
                     <FilterProductButton label="By Segment" value="segment" />
                 </div>

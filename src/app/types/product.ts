@@ -3,6 +3,6 @@ export interface Product {
   title: string;
   category: string;
   segment: string;
-  divison: string;
+  division: string;
   company: string;
 }
