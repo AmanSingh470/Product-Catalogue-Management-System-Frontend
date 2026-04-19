@@ -1,7 +1,7 @@
 import api from "@/lib/axios";
 
 export const getFilters = async () => {
-  const res = await api.get("/get-filters");
+  const res = await api.get("/get-filters");  
   return res.data;
 };
 

@@ -6,5 +6,5 @@ export default async function Page() {
   const products = await getProducts();
   const filters = await getFilters();
   
-  return <HomeClient initialProducts={products.data} initialFilters={filters}/>;
+  return <HomeClient initialProducts={products.data} initialFilters={filters.data}/>;
 }

@@ -3,7 +3,7 @@ import { useView } from "@/app/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-export default function ProductCard({ title, category, division, image }: any) {
+export default function ProductCard({ title, category, division, image_url }: any) {
     const { view } = useView();
 
     const { ref, inView } = useInView({
@@ -18,13 +18,14 @@ export default function ProductCard({ title, category, division, image }: any) {
                     <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
                         
                         <Image
-                            src="/assets/images/card2.png"
+                            src={`http://127.0.0.1:8000/storage/images/products/${image_url}`}
                             alt={title}
                             fill
                             className="rounded object-cover"
+                            unoptimized
                         />
 
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition-300"></div>
+                        <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-300"></div>
 
                         <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs">
                             <h2>{title}</h2>
