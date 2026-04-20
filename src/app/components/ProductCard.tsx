@@ -37,7 +37,14 @@ export default function ProductCard({ title, category, division, image_url }: an
                     <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition cursor-pointer">
                         
                         <div className="flex items-center col-span-3 gap-2">
-                            <img src="/assets/images/card.jpg" className="w-10 h-10 rounded object-cover" />
+                            <Image
+                                src={`http://127.0.0.1:8000/storage/images/products/${image_url}`}
+                                alt={title}
+                                className="w-10 h-10 rounded object-cover"
+                                unoptimized
+                                width={40}
+                                height={40}
+                            />
                             <span className="text-xs font-medium text-gray-800">
                                 {title}
                             </span>

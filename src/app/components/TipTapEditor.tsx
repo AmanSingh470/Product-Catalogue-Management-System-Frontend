@@ -10,9 +10,15 @@ import LeftAlign from "@/app/components/icons/LeftAlign";
 import CenterAlign from "@/app/components/icons/CenterAlign";
 import RightAlign from "@/app/components/icons/RightAlign";
 import List from "@/app/components/icons/List";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function TipTapEditor(): JSX.Element {
+type Props = {
+  value: string;
+  onChange: (content: string) => void;
+};
+
+export default function TipTapEditor({ value, onChange }: Props): JSX.Element {
+  
   const editor: Editor | null = useEditor({
     extensions: [
       StarterKit,
@@ -24,10 +30,18 @@ export default function TipTapEditor(): JSX.Element {
         types: ["heading", "paragraph"],
       }),
     ],
-    content: "",
+    content: value || "",
     immediatelyRender: false,
-    onUpdate: () => { },
+    onUpdate: ({ editor }) => {
+      onChange(editor.getHTML());
+    },
   });
+
+  useEffect(() => {
+  if (editor && value !== editor.getHTML()) {
+    editor.commands.setContent(value || "");
+  }
+}, [value, editor]);
 
   const [isActiveBold, setIsActiveBold] = useState(false);
   const [isActiveItalic, setIsActiveItalic] = useState(false);

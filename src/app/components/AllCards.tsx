@@ -3,8 +3,9 @@ interface Props {
     count: number;
     description: string;
     image: string;
+    total_products: number
 }
-export default function AllCards({ name, count=5, description="abc", image }: Props) {
+export default function AllCards({ name, description="abc", image, total_products }: Props) {
 
     return (
         <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden cursor-pointer">
@@ -13,7 +14,7 @@ export default function AllCards({ name, count=5, description="abc", image }: Pr
             </div>
             <div className="basis-2/3">
                 <h3 className="font-bold text-sm">
-                    {name} ({count})
+                    {name} ({total_products})
                 </h3>
                 <p className="text-xs line-clamp-4">
                     {description}

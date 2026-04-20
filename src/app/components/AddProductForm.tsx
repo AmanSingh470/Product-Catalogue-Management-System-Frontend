@@ -1,38 +1,69 @@
 "use client";
 import TipTapEditor from "@/app/components/TipTapEditor";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useAddProduct } from "@/app/context/add-product-context";
 import { useFilter } from "@/app/context/filter-context";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import api from "@/lib/axios";
+import { productRequestSchema } from "@/lib/validations/productRequestSchema";
 
 export default function AddProductForm() {
   const [text, setText] = useState("");
-
   const { divisionProducts, segmentProducts, companyProducts, categoryProducts } = useFilter();
-
   const { closeModal } = useAddProduct();
 
-  const handleProductSubmit = (e: any) => {
-    e.preventDefault();
+  const { register,
+    handleSubmit,
+    reset,
+    watch,
+    setValue,
+    formState: { errors }
+  } = useForm({ resolver: zodResolver(productRequestSchema) });
 
-    toast.success("Product added Successfully!", {
-      duration: 3000,
-      style: {
-        border: "1px solid black",
-        padding: "10px",
-        backgroundColor: "green",
-        color: "white",
-      },
-    });
-    closeModal();
+  useEffect(() => {
+    register("description");
+  }, [register]);
+
+  const onSubmit = async (data: any) => {
+    try {
+      const res = await api.post("/product-request-form", data);
+      if (res.status === 201 && res.data.status == "success") {
+        toast.success("Product Addition Request Send Successfully!", {
+          duration: 5000,
+          style: {
+            border: "1px solid black",
+            padding: "10px",
+            backgroundColor: "green",
+            color: "white",
+          },
+        });
+      }
+      else {
+        toast.error("Product Addition Request failed!", {
+          duration: 5000,
+          style: {
+            border: "1px solid black",
+            padding: "10px",
+            backgroundColor: "red",
+            color: "white",
+          },
+        });
+      }
+      reset();
+      closeModal();
+    }
+    catch (e: any) {
+      console.log(e);
+    }
   };
 
   return (
     <form
       id="add-product-form"
       className="space-y-5"
-      onSubmit={handleProductSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <label className="text-sm font-medium text-black">
@@ -41,14 +72,19 @@ export default function AddProductForm() {
         <p className="text-xs text-gray-400 mb-1">Brand Vehicle product name</p>
 
         <div className="relative bg-white">
+          {errors.title && (
+            <p className="text-red-500 text-xs">{errors.title.message}</p>
+          )}
           <input
             type="text"
             className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none hover:border-black text-black text-xs"
             placeholder="Title"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
             maxLength={100}
             required
+            value={text}
+            {...register("title", {
+              onChange: (e) => setText(e.target.value),
+            })}
           />
           <span className="absolute right-3 top-2 text-xs text-gray-400">
             {text.length}/100 characters
@@ -61,9 +97,13 @@ export default function AddProductForm() {
           <label className="text-sm font-medium text-black">
             Category<span className="text-red-500">*</span>
           </label>
+          {errors.category_id && (
+            <p className="text-red-500 text-xs">{errors.category_id.message}</p>
+          )}
           <select
             className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black"
             required
+            {...register("category_id")}
           >
             <option value="" hidden>
               Choose category
@@ -81,9 +121,13 @@ export default function AddProductForm() {
           <label className="text-sm font-medium text-black">
             Company<span className="text-red-500">*</span>
           </label>
+          {errors.company_id && (
+            <p className="text-red-500 text-xs">{errors.company_id.message}</p>
+          )}
           <select
             className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black"
             required
+            {...register("company_id")}
           >
             <option value="" hidden>
               Choose company
@@ -100,9 +144,13 @@ export default function AddProductForm() {
           <label className="text-sm font-medium text-black">
             Division<span className="text-red-500">*</span>
           </label>
+          {errors.division_id && (
+            <p className="text-red-500 text-xs">{errors.division_id.message}</p>
+          )}
           <select
             className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black"
             required
+            {...register("division_id")}
           >
             <option value="" hidden>
               Choose division
@@ -119,9 +167,13 @@ export default function AddProductForm() {
           <label className="text-sm font-medium text-black">
             Segment<span className="text-red-500">*</span>
           </label>
+          {errors.segment_id && (
+            <p className="text-red-500 text-xs">{errors.segment_id.message}</p>
+          )}
           <select
             className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs text-black bg-white hover:border-black"
             required
+            {...register("segment_id")}
           >
             <option value="" hidden>
               Choose segment
@@ -137,8 +189,13 @@ export default function AddProductForm() {
 
       <div>
         <label className="text-sm font-medium text-black">Description</label>
-
-        <TipTapEditor />
+          {errors.description && (
+            <p className="text-red-500 text-xs">{errors.description.message}</p>
+          )}
+        <TipTapEditor
+          value={watch("description") || ""}
+          onChange={(content: any) => setValue("description", content)}
+        />
       </div>
 
       <div className="p-4 flex justify-evenly">

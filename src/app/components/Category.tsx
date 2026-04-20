@@ -6,9 +6,10 @@ interface Props {
   count: any;
   type: "company" | "segment" | "division";
   productCount?: any;
+  total_products: integer;
 }
 
-export default function Category({ name, type }: Props) {
+export default function Category({ name, type, total_products }: Props) {
   const {
     selectedCompanies,
     setSelectedCompanies,
@@ -54,7 +55,7 @@ export default function Category({ name, type }: Props) {
           />
           <span className="ml-2">{name}</span>
         </label>
-        <div>0</div>
+        <div>{total_products}</div>
       </div>
     </div>
   );
