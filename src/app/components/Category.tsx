@@ -6,7 +6,7 @@ interface Props {
   count: any;
   type: "company" | "segment" | "division";
   productCount?: any;
-  total_products: integer;
+  total_products: number;
 }
 
 export default function Category({ name, type, total_products }: Props) {
