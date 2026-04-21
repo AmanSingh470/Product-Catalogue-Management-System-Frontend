@@ -42,7 +42,7 @@ export default function ProductCard({ title, category, division, image_url }: an
 
                         <div className="flex items-center col-span-3 gap-2">
                             <Image
-                                src={`http://127.0.0.1:8000/storage/images/products/${image_url}`}
+                                src={`${baseURL}/storage/images/products/${image_url}`}
                                 alt={title}
                                 className="w-10 h-10 rounded object-cover"
                                 unoptimized
