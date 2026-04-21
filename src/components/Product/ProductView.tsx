@@ -3,6 +3,7 @@ import ProductCard from "@/components/Product/ProductCard";
 import { useView } from "@/context/view-context";
 import { useProducts } from "@/context/product-context";
 import { useIsProductsEmpty } from "@/hooks/useIsProductsEmpty";
+
 export default function ProductView() {
     const { view } = useView();
     const { filteredProducts } = useProducts();

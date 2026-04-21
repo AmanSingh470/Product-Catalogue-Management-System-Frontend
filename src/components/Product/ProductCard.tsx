@@ -2,6 +2,7 @@
 import { useView } from "@/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 export default function ProductCard({ title, category, division, image_url }: any) {
     const { view } = useView();
@@ -15,27 +16,30 @@ export default function ProductCard({ title, category, division, image_url }: an
         <div ref={ref}>
             {inView && (
                 view === "grid" ? (
-                    <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
-                        
-                        <Image
-                            src={`${baseURL}/storage/images/products/${image_url}`}
-                            alt={title}
-                            fill
-                            className="rounded object-cover"
-                            unoptimized
-                        />
+                    <Link href="/products">
+                        <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
 
-                        <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-300"></div>
+                            <Image
+                                src={`${baseURL}/storage/images/products/${image_url}`}
+                                alt={title}
+                                fill
+                                className="rounded object-cover"
+                                unoptimized
+                            />
 
-                        <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs">
-                            <h2>{title}</h2>
-                            <p>{category}</p>
+                            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-300"></div>
+
+                            <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs">
+                                <h2>{title}</h2>
+                                <p>{category}</p>
+                            </div>
+
                         </div>
+                    </Link>
 
-                    </div>
                 ) : (
                     <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition cursor-pointer">
-                        
+
                         <div className="flex items-center col-span-3 gap-2">
                             <Image
                                 src={`http://127.0.0.1:8000/storage/images/products/${image_url}`}
