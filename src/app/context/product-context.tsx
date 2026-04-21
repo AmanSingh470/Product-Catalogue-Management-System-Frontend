@@ -27,7 +27,7 @@ export function ProductProvider({ children, initialProducts }: { children: React
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
   const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
   const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
-
+  
   // MAIN FILTER LOGIC
   useEffect(() => {
     let result = products;

@@ -1,26 +1,36 @@
 import api from "@/lib/axios";
+import { filtersResponseSchema } from "@/lib/validations/filter.schema";
+
+const FALLBACK = {
+  data: {
+    all: [],
+    categories: [],
+    segments: [],
+    divisions: [],
+    companies: [],
+    contactPersons: [],
+  },
+};
 
 export const getFilters = async () => {
-  const res = await api.get("/get-filters");  
-  return res.data;
-};
+  try {
+    const res = await api.get("/get-filters");
 
-export const getFilter = async (id: number) => {
-  const res = await api.get(`/filters/${id}`);
-  return res.data;
-};
+    // content-type check
+    const contentType = res.headers["content-type"] || "";
+    if (!contentType.includes("application/json")) {
+      return FALLBACK;
+    }
 
-export const createFilter = async (data: any) => {
-  const res = await api.post("/filters", data);
-  return res.data;
-};
+    // HTML/string check
+    if (typeof res.data === "string") {
+      return FALLBACK;
+    }
 
-export const updateFilter = async (id: number, data: any) => {
-  const res = await api.put(`/filters/${id}`, data);
-  return res.data;
-};
+    // Zod validation
+    return filtersResponseSchema.parse(res.data);
 
-export const deleteFilter = async (id: number) => {
-  const res = await api.delete(`/filters/${id}`);
-  return res.data;
+  } catch (err) {
+    return FALLBACK;
+  }
 };

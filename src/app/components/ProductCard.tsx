@@ -10,7 +10,7 @@ export default function ProductCard({ title, category, division, image_url }: an
         triggerOnce: true,
         threshold: 0.1,
     });
-
+    const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
     return (
         <div ref={ref}>
             {inView && (
@@ -18,7 +18,7 @@ export default function ProductCard({ title, category, division, image_url }: an
                     <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
                         
                         <Image
-                            src={`http://127.0.0.1:8000/storage/images/products/${image_url}`}
+                            src={`${baseURL}/storage/images/products/${image_url}`}
                             alt={title}
                             fill
                             className="rounded object-cover"

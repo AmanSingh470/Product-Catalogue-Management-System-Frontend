@@ -1,26 +1,27 @@
 import api from "@/lib/axios";
+import { productsResponseSchema } from "@/lib/validations/product.schema";
+
+const FALLBACK = { data: [] };
 
 export const getProducts = async () => {
-  const res = await api.get("/get-products");
-  return res.data;
-};
+  try {
+    const res = await api.get("/get-products");
 
-export const getProduct = async (id: number) => {
-  const res = await api.get(`/products/${id}`);
-  return res.data;
-};
+    //  1. content-type check
+    const contentType = res.headers["content-type"] || "";
+    if (!contentType.includes("application/json")) {
+      return FALLBACK;
+    }
 
-export const createProduct = async (data: any) => {
-  const res = await api.post("/products", data);
-  return res.data;
-};
+    //  2. HTML/string check
+    if (typeof res.data === "string") {
+      return FALLBACK;
+    }
 
-export const updateProduct = async (id: number, data: any) => {
-  const res = await api.put(`/products/${id}`, data);
-  return res.data;
-};
-
-export const deleteProduct = async (id: number) => {
-  const res = await api.delete(`/products/${id}`);
-  return res.data;
+    //  3. Zod validation
+    return productsResponseSchema.parse(res.data);
+    
+  } catch (err) {
+    return FALLBACK;
+  }
 };
