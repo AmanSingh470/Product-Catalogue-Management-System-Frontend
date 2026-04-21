@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useProducts } from "@/app/context/product-context";
+import { useProducts } from "@/context/product-context";
 
 export const useIsProductsEmpty = () => {
   const { filteredProducts } = useProducts();

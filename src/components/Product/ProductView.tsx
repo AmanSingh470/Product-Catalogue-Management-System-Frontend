@@ -1,8 +1,8 @@
 "use client";
-import ProductCard from "@/app/components/ProductCard";
-import { useView } from "@/app/context/view-context";
-import { useProducts } from "@/app/context/product-context";
-import { useIsProductsEmpty } from "@/app/hooks/useIsProductsEmpty";
+import ProductCard from "@/components/Product/ProductCard";
+import { useView } from "@/context/view-context";
+import { useProducts } from "@/context/product-context";
+import { useIsProductsEmpty } from "@/hooks/useIsProductsEmpty";
 export default function ProductView() {
     const { view } = useView();
     const { filteredProducts } = useProducts();
@@ -13,7 +13,7 @@ export default function ProductView() {
 
                 {isProductsEmpty && (
                     
-                    <div className="text-center py-10 text-gray-500 text-xl">
+                    <div className="text-center py-5 text-gray-500 text-xl">
                         No products found
                     </div>
                 )}

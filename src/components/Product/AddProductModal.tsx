@@ -1,6 +1,6 @@
 "use client";
-import { useAddProduct } from "@/app/context/add-product-context";
-import AddProductForm from "@/app/components/AddProductForm";
+import { useAddProduct } from "@/context/add-product-context";
+import AddProductForm from "@/components/Product/AddProductForm";
 
 export default function AddProductModal() {
     const { isModalOpen, closeModal } = useAddProduct();

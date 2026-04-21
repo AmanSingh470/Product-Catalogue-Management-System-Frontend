@@ -1,9 +1,9 @@
 "use client";
-import TipTapEditor from "@/app/components/TipTapEditor";
+import TipTapEditor from "@/components/Product/TipTapEditor";
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
-import { useAddProduct } from "@/app/context/add-product-context";
-import { useFilter } from "@/app/context/filter-context";
+import { useAddProduct } from "@/context/add-product-context";
+import { useFilter } from "@/context/filter-context";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import api from "@/lib/axios";

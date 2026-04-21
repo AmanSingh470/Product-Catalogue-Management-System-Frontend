@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { useNotification } from "@/app/context/notification-context";
+import { useNotification } from "@/context/notification-context";
 
 export default function NotificationDropDown() {
   const { open, setOpen } = useNotification();

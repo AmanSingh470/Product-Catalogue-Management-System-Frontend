@@ -1,10 +1,10 @@
 "use client"
-import GridButton from "@/app/components/GridButton";
-import ListButton from "@/app/components/ListButton";
-import { useIsLargeScreen } from "@/app/hooks/useIsLargeScreen";
-import SearchProduct from "@/app/components/SearchProduct";
-import FilterProductButton from "@/app/components/FilterProductButton";
-import { useAddProduct } from "@/app/context/add-product-context";
+import GridButton from "@/components/Product/GridButton";
+import ListButton from "@/components/Product/ListButton";
+import { useIsLargeScreen } from "@/hooks/useIsLargeScreen";
+import SearchProduct from "@/components/FilterProduct/SearchProduct";
+import FilterProductButton from "@/components/FilterProduct/FilterProductButton";
+import { useAddProduct } from "@/context/add-product-context";
 
 export default function Toolbar() {
     const { openModal } = useAddProduct();

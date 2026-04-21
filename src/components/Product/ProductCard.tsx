@@ -1,5 +1,5 @@
 "use client"
-import { useView } from "@/app/context/view-context";
+import { useView } from "@/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 

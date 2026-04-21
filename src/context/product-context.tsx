@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import productsData from "@/app/data/products.json";
-import { Product } from "@/app/types/product";
+import productsData from "@/data/products.json";
+import { Product } from "@/types/product";
 
 interface ProductContextType {
   filteredProducts: Product[];

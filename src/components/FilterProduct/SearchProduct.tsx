@@ -1,5 +1,5 @@
 "use client";
-import { useProducts } from "@/app/context/product-context";
+import { useProducts } from "@/context/product-context";
 
 export default function SearchProduct() {
     const { searchQuery, setSearchQuery } = useProducts();

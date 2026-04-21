@@ -1,6 +1,6 @@
 "use client";
-import { useFilter } from "@/app/context/filter-context";
-import { useProducts } from "@/app/context/product-context";
+import { useFilter } from "@/context/filter-context";
+import { useProducts } from "@/context/product-context";
 
 type TabType = "all" | "division" | "company" | "segment";
 

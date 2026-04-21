@@ -1,5 +1,5 @@
 "use client"
-import {useView} from "@/app/context/view-context";
+import {useView} from "@/context/view-context";
 
 export default function ListButton() {
     const { view, setView } = useView();

@@ -1,5 +1,5 @@
 "use client"
-import {useView} from "@/app/context/view-context";
+import {useView} from "@/context/view-context";
 
 export default function GridButton() {
   const { view, setView } = useView();

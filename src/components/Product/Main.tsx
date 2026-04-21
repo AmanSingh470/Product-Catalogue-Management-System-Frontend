@@ -1,6 +1,6 @@
 "use client"
-import ProductView from '@/app/components/ProductView';
-import Sidebar from '@/app/components/Sidebar';
+import ProductView from '@/components/Product/ProductView';
+import Sidebar from '@/components/Product/Sidebar';
 
 export default function Main() {
   return (

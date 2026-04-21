@@ -1,8 +1,8 @@
 "use client"
 
-import {useScrollNavbar} from "@/app/hooks/useScrollNavbar";
-import { useNotification } from "@/app/context/notification-context";
-import { useProfile } from "@/app/context/profile-context";
+import {useScrollNavbar} from "@/hooks/useScrollNavbar";
+import { useNotification } from "@/context/notification-context";
+import { useProfile } from "@/context/profile-context";
 
 export default function Navbar() {
     const scrolled = useScrollNavbar();

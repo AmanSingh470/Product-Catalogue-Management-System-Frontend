@@ -1,8 +1,8 @@
 "use client";
-import { useFilter } from "@/app/context/filter-context";
+import { useFilter } from "@/context/filter-context";
 import { useState, useEffect } from "react";
-import Category from "@/app/components/Category";
-import AllCards from "@/app/components/AllCards";
+import Category from "@/components/FilterProduct/Category";
+import AllCards from "@/components/FilterProduct/AllCards";
 
 export default function FilterProduct() {
     

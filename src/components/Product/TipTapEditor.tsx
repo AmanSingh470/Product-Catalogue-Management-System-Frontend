@@ -6,10 +6,10 @@ import Underline from "@tiptap/extension-underline";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextAlign from "@tiptap/extension-text-align";
 import { JSX } from "react";
-import LeftAlign from "@/app/components/icons/LeftAlign";
-import CenterAlign from "@/app/components/icons/CenterAlign";
-import RightAlign from "@/app/components/icons/RightAlign";
-import List from "@/app/components/icons/List";
+import LeftAlign from "@/components/Icons/LeftAlign";
+import CenterAlign from "@/components/Icons/CenterAlign";
+import RightAlign from "@/components/Icons/RightAlign";
+import List from "@/components/Icons/List";
 import { useState, useEffect } from "react";
 
 type Props = {

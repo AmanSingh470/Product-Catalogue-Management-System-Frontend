@@ -1,5 +1,5 @@
 "use client";
-import { useProfile } from "@/app/context/profile-context";
+import { useProfile } from "@/context/profile-context";
 import { useRef, useEffect } from "react";
 
 export default function ProfileDropDown() {

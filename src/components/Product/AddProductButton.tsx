@@ -1,5 +1,5 @@
 "use client";
-import { useAddProduct } from "@/app/context/add-product-context";
+import { useAddProduct } from "@/context/add-product-context";
 
 export default function AddProductButton()
 {

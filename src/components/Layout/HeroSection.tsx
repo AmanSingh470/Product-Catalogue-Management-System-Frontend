@@ -1,5 +1,5 @@
 "use client"
-import { useScrollNavbar } from "../hooks/useScrollNavbar";
+import { useScrollNavbar } from "@/hooks/useScrollNavbar";
 
 export default function HeroSection() {
     const scrolled = useScrollNavbar();

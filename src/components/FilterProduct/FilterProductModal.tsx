@@ -1,6 +1,6 @@
 "use client"
-import {useFilter} from "@/app/context/filter-context";
-import FilterProduct from "@/app/components/FilterProduct";
+import {useFilter} from "@/context/filter-context";
+import FilterProduct from "@/components/FilterProduct/FilterProduct";
 
 export default function FilterProductModal() {
     const { isModalOpen, closeModal, activeFilter } = useFilter();
