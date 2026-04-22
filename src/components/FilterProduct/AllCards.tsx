@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import {useFilter} from "@/context/filter-context";
 
 interface Props {
     name: string;
@@ -8,11 +9,14 @@ interface Props {
     image: string;
     total_products: number
 }
-export default function AllCards({ name, description = "abc", image, total_products }: Props) {
+export default function AllCards({ name, description, image, total_products }: Props) {
     const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
     const [loaded, setLoaded] = useState(false);
+    const { setActiveFilter } = useFilter();
     return (
-        <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden cursor-pointer relative">
+        <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden cursor-pointer relative"
+            onClick={()=> setActiveFilter('division')}
+        >
             {!loaded && (
                 <div className="absolute inset-0 bg-gray-300 overflow-hidden">
                     <div className="absolute inset-0 shimmer"></div>

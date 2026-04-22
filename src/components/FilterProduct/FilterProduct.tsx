@@ -42,7 +42,7 @@ export default function FilterProduct() {
                 <div id="filter-all"
                     className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "all" ? "" : "hidden"}`}>
                     {allProducts.map((item) => (
-                        <AllCards key={item.id} {...item} type="all" />
+                        <AllCards key={item.id} {...item}/>
                     ))}
                 </div>
             );

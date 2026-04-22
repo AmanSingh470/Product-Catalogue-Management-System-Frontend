@@ -35,7 +35,10 @@ export function ProductProvider({ children, initialProducts }: { children: React
     // search
     if (searchQuery !== "") {
       result = result.filter((item) =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase())
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.division.toLowerCase().includes(searchQuery.toLowerCase())||
+        item.segment.toLowerCase().includes(searchQuery.toLowerCase()) 
       );
     }
 

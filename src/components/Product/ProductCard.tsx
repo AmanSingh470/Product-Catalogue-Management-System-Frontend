@@ -47,35 +47,37 @@ export default function ProductCard({ title, category, division, image_url }: an
                     </Link>
 
                 ) : (
-                    <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition cursor-pointer">
+                    <Link href="/products">
+                        <div className="grid grid-cols-8 gap-4 items-center bg-white rounded-lg px-4 py-3 shadow-sm hover:bg-gray-50 transition cursor-pointer">
 
-                        <div className="flex items-center col-span-3 gap-2">
-                            <Image
-                                src={`${baseURL}/storage/images/products/${image_url}`}
-                                alt={title}
-                                className="w-10 h-10 rounded object-cover"
-                                unoptimized
-                                width={40}
-                                height={40}
-                            />
-                            <span className="text-xs font-medium text-gray-800">
-                                {title}
-                            </span>
+                            <div className="flex items-center col-span-3 gap-2">
+                                <Image
+                                    src={`${baseURL}/storage/images/products/${image_url}`}
+                                    alt={title}
+                                    className="w-10 h-10 rounded object-cover"
+                                    unoptimized
+                                    width={40}
+                                    height={40}
+                                />
+                                <span className="text-xs font-medium text-gray-800">
+                                    {title}
+                                </span>
+                            </div>
+
+                            <div className="text-xs text-gray-500 col-span-2">
+                                {category}
+                            </div>
+
+                            <div className="text-sm text-gray-500 col-span-2">
+                                {division}
+                            </div>
+
+                            <div className="flex justify-end text-gray-400 col-span-1">
+                                &#8594;
+                            </div>
+
                         </div>
-
-                        <div className="text-xs text-gray-500 col-span-2">
-                            {category}
-                        </div>
-
-                        <div className="text-sm text-gray-500 col-span-2">
-                            {division}
-                        </div>
-
-                        <div className="flex justify-end text-gray-400 col-span-1">
-                            &#8594;
-                        </div>
-
-                    </div>
+                    </Link>
                 )
             )}
         </div>

@@ -2,7 +2,7 @@
 import GridButton from "@/components/Product/GridButton";
 import ListButton from "@/components/Product/ListButton";
 import { useIsLargeScreen } from "@/hooks/useIsLargeScreen";
-import SearchProduct from "@/components/FilterProduct/SearchProduct";
+import SearchProduct from "@/components/Layout/SearchProduct";
 import FilterProductButton from "@/components/FilterProduct/FilterProductButton";
 import { useAddProduct } from "@/context/add-product-context";
 
