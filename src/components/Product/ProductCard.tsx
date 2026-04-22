@@ -3,6 +3,7 @@ import { useView } from "@/context/view-context";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ProductCard({ title, category, division, image_url }: any) {
     const { view } = useView();
@@ -12,19 +13,27 @@ export default function ProductCard({ title, category, division, image_url }: an
         threshold: 0.1,
     });
     const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+    const [loaded, setLoaded] = useState(false);
+
     return (
         <div ref={ref}>
             {inView && (
                 view === "grid" ? (
                     <Link href="/products">
                         <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
-
+                            {!loaded && (
+                                <div className="absolute inset-0 bg-gray-300 overflow-hidden">
+                                    <div className="absolute inset-0 shimmer"></div>
+                                </div>
+                            )}
                             <Image
                                 src={`${baseURL}/storage/images/products/${image_url}`}
                                 alt={title}
                                 fill
                                 className="rounded object-cover"
                                 unoptimized
+                                onLoad={() => setLoaded(true)}
                             />
 
                             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-300"></div>

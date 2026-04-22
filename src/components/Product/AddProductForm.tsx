@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import api from "@/lib/axios";
 import { productRequestSchema } from "@/lib/validations/productRequestSchema";
+import Spinner from "@/components/Layout/Spinner";
 
 export default function AddProductForm() {
   const [text, setText] = useState("");
@@ -26,8 +27,11 @@ export default function AddProductForm() {
     register("description");
   }, [register]);
 
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (data: any) => {
     try {
+      setLoading(true);
       const res = await api.post("/product-request-form", data);
       if (res.status === 201 && res.data.status == "success") {
         toast.success("Product Addition Request Send Successfully!", {
@@ -39,6 +43,7 @@ export default function AddProductForm() {
             color: "white",
           },
         });
+        setLoading(false);
       }
       else {
         toast.error("Product Addition Request failed!", {
@@ -62,9 +67,10 @@ export default function AddProductForm() {
   return (
     <form
       id="add-product-form"
-      className="space-y-5"
+      className="relative space-y-5"
       onSubmit={handleSubmit(onSubmit)}
     >
+    {loading && <Spinner />}
       <div>
         <label className="text-sm font-medium text-black">
           Title<span className="text-red-500">*</span>
@@ -198,7 +204,7 @@ export default function AddProductForm() {
         />
       </div>
 
-      <div className="p-4 flex justify-evenly">
+      <div className="p-4 flex justify-evenly z-51">
         <button
           id="applyAddProductModalBtn"
           className="mx-1 w-full bg-red-500 text-white py-3 rounded-lg font-bold cursor-pointer"

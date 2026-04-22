@@ -13,7 +13,7 @@ export default function AddProductModal() {
             <div
                 className="bg-[#F5F6F8] w-full lg:w-1/2 xl:w-1/2 2xl:w-1/2 h-full lg:h-[90vh] xl:h-[90vh] 2xl:h-[90vh] rounded-xl shadow-xl flex flex-col">
 
-                <div className="flex justify-between items-center p-4 border-b text-black">
+                <div className="flex justify-between items-center p-4 text-black">
                     <h2 id="addProductModalTitle" className="text-lg font-bold">Add Product</h2>
                     <button id="close-add-product-modal" className="text-2xl font-bold cursor-pointer" onClick={closeModal}>&times;</button>
                 </div>
