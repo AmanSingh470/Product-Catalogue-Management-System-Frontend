@@ -17,10 +17,10 @@ import { ProfileProvider } from "@/context/profile-context";
 
 export default function HomeClient({ initialProducts, initialFilters }: any) {
   return (
-    <div className="bg-[#F5F6F8] text-black">
+    <>
       <NotificationProvider>
         <ProfileProvider>
-          <Navbar />
+          <Navbar mode="home"/>
           <NotificationDropDown />
           <ProfileDropDown />
         </ProfileProvider>
@@ -40,6 +40,6 @@ export default function HomeClient({ initialProducts, initialFilters }: any) {
           </ProductProvider>
         </AddProductProvider>
       </ViewProvider>
-    </div>
+    </>
   );
 }

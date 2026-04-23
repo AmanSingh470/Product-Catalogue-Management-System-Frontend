@@ -38,10 +38,10 @@ export default function AllCards({ name, description, image, total_products }: P
                 />
             </div>
             <div className="basis-2/3">
-                <h3 className="font-bold text-sm">
+                <h2 className="text-[11px] uppercase font-medium text-[var(--dark-color)]">
                     {name} ({total_products})
-                </h3>
-                <p className="text-xs line-clamp-4">
+                </h2>
+                <p className="text-xs line-clamp-4 text-[var(--grey-500)]">
                     {description}
                 </p>
             </div>

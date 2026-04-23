@@ -21,7 +21,7 @@ export default function ProductCard({ title, category, division, image_url }: an
             {inView && (
                 view === "grid" ? (
                     <Link href="/products">
-                        <div className="group relative rounded-md flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
+                        <div className="group relative rounded-sm flex flex-col overflow-hidden text-white w-full h-45 sm:h-70 md:h-85 lg:h-45 xl:h-55 2xl:h-60 product-item cursor-pointer">
                             {!loaded && (
                                 <div className="absolute inset-0 bg-gray-300 overflow-hidden">
                                     <div className="absolute inset-0 shimmer"></div>
@@ -38,9 +38,9 @@ export default function ProductCard({ title, category, division, image_url }: an
 
                             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-300"></div>
 
-                            <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs">
+                            <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs font-medium">
                                 <h2>{title}</h2>
-                                <p>{category}</p>
+                                <p className="uppercase">{category}</p>
                             </div>
 
                         </div>
@@ -68,7 +68,7 @@ export default function ProductCard({ title, category, division, image_url }: an
                                 {category}
                             </div>
 
-                            <div className="text-sm text-gray-500 col-span-2">
+                            <div className="text-xs text-gray-500 col-span-2">
                                 {division}
                             </div>
 

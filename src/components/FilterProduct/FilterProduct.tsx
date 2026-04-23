@@ -52,9 +52,9 @@ export default function FilterProduct() {
             return (
                 (
                     <div id="filter-division"
-                        className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "division" ? "" : "hidden"}`}>
+                        className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "division" ? "" : "hidden"} bg-white p-2`}>
                         <div className="w-full">
-                            <div className="flex justify-between mb-2 font-bold text-xs">
+                            <div className="flex justify-between mb-2 text-[10px] font-medium text-black">
                                 <div>DIVISIONS</div>
                                 <div>NO. PRODUCTS</div>
                             </div>
@@ -69,9 +69,9 @@ export default function FilterProduct() {
         case "segment":
             return (
                 <div id="filter-segment"
-                    className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "segment" ? "" : "hidden"}`}>
+                    className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "segment" ? "" : "hidden"} bg-white p-2`}>
                     <div className="w-full">
-                        <div className="flex justify-between mb-2 font-bold text-xs">
+                        <div className="flex justify-between mb-2 text-[10px] font-medium text-black">
                             <div>SEGMENT</div>
                             <div>NO. PRODUCTS</div>
                         </div>
@@ -85,9 +85,9 @@ export default function FilterProduct() {
         case "company":
             return (
                 <div id="filter-company"
-                    className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "company" ? "" : "hidden"}`}>
+                    className={`filter-content sidebar-scroll overflow-y-auto flex-1 text-gray-600 ${activeFilter === "company" ? "" : "hidden"} bg-white p-2`}>
                     <div className="w-full">
-                        <div className="flex justify-between mb-2 font-bold text-xs">
+                        <div className="flex justify-between mb-2 text-[10px] font-medium text-black">
                             <div>COMPANIES</div>
                             <div>NO. PRODUCTS</div>
                         </div>

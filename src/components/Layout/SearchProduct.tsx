@@ -14,7 +14,7 @@ export default function SearchProduct() {
         <div className="flex relative">
             <input
                 id="search-input"
-                className="p-2 rounded-xs bg-white text-black placeholder-gray-500 w-full"
+                className="p-3 rounded-xs bg-white text-black placeholder-[var(--grey-500)] w-full text-xs border border-transparent hover:border-black"
                 type="text"
                 placeholder="Search Products"
                 value={searchQuery}

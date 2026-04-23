@@ -28,7 +28,7 @@ export default function FilterProductButton(
         }
         if(openModalOnClick && value !== "all") openModal();
       }}
-      className={`m-1 flex-auto rounded-xs p-2 text-sm cursor-pointer transition ${
+      className={`m-1 flex-auto rounded-xs p-2 text-xs cursor-pointer transition ${
         isActive
           ? "bg-black text-white"
           : "bg-white text-gray-600 hover:bg-gray-100"

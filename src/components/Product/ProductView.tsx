@@ -14,7 +14,7 @@ export default function ProductView() {
 
                 {isProductsEmpty && (
                     
-                    <div className="text-center py-5 text-gray-500 text-xl">
+                    <div className="lg:text-center py-5 text-gray-500 text-xl">
                         No products found
                     </div>
                 )}
@@ -34,15 +34,15 @@ export default function ProductView() {
         )
         :
         (
-            <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3">
+            <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3 relative">
                 {isProductsEmpty && (
                     
-                    <div className="text-center py-10 text-gray-500 text-xl">
+                    <div className="lg:text-left p xl:text-center 2xl:text-center-5 text-gray-500 text-xl z-51">
                         No products found
                     </div>
                 )}
                 {!isProductsEmpty && (<div id="product-list">
-                    <div className="grid grid-cols-8 text-sm text-black px-4 py-2">
+                    <div className="grid grid-cols-8 text-sm text-black px-4 py-2 sticky top-30 h-10 z-99 bg-[var(--grey-200)]">
                         <span className="col-span-3">Product name</span>
                         <span className="col-span-2">Segment</span>
                         <span className="col-span-2">Division</span>
