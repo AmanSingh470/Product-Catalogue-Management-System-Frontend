@@ -37,7 +37,7 @@ export default function ProductView() {
             <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3 relative">
                 {isProductsEmpty && (
                     
-                    <div className="lg:text-left p xl:text-center 2xl:text-center-5 text-gray-500 text-xl z-51">
+                    <div className="lg:text-left py-5 xl:text-center 2xl:text-center-5 text-gray-500 text-xl z-51">
                         No products found
                     </div>
                 )}
