@@ -1,0 +1,21 @@
+"use client"
+import Navbar from "@/components/Layout/Navbar";
+import NotificationDropDown from "@/components/Layout/NotificationDropDown";
+import { NotificationProvider } from "@/context/notification-context";
+import ProfileDropDown from "@/components/Layout/ProfileDropDown";
+import { ProfileProvider } from "@/context/profile-context";
+import Main from "@/components/Products/Main";
+
+export default function ProductsClient() {
+    return <>
+        <NotificationProvider>
+            <ProfileProvider>
+                <Navbar />
+                <NotificationDropDown />
+                <ProfileDropDown />
+            </ProfileProvider>
+        </NotificationProvider>
+        <Main />
+
+    </>
+}

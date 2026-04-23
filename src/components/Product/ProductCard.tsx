@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ProductCard({ title, category, division, image_url }: any) {
+export default function ProductCard({ title, segment, division, image_url }: any) {
     const { view } = useView();
 
     const { ref, inView } = useInView({
@@ -40,7 +40,7 @@ export default function ProductCard({ title, category, division, image_url }: an
 
                             <div className="absolute flex flex-col justify-center bottom-3 left-1 p-2 text-xs font-medium">
                                 <h2>{title}</h2>
-                                <p className="uppercase">{category}</p>
+                                <p className="uppercase">{segment}</p>
                             </div>
 
                         </div>
@@ -65,7 +65,7 @@ export default function ProductCard({ title, category, division, image_url }: an
                             </div>
 
                             <div className="text-xs text-gray-500 col-span-2">
-                                {category}
+                                {segment}
                             </div>
 
                             <div className="text-xs text-gray-500 col-span-2">
