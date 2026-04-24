@@ -11,7 +11,7 @@ export default function Toolbar() {
 
     return useIsLargeScreen() ?
         (
-            <div className="hidden lg:flex xl:flex 2xl:flex sticky h-15 top-15 z-50">
+            <div className="hidden lg:flex xl:flex 2xl:flex sticky h-15 top-15 z-50 bg-[#f3f3f4]">
                 <div className="flex items-center ml-8 w-14 justify-between">
                     <div className="flex flex-col">
                         <GridButton />
@@ -25,7 +25,7 @@ export default function Toolbar() {
         :
         (
             <>
-                <div className="flex justify-evenly lg:hidden xl:hidden 2xl:hidden flex-col sticky h-35 md:h-32 top-15 z-50">
+                <div className="flex justify-evenly lg:hidden xl:hidden 2xl:hidden flex-col sticky h-35 md:h-32 top-15 z-50 bg-[#f3f3f4]">
 
                     <SearchProduct />
                     <div className="flex justify-evenly mb-1">
@@ -37,7 +37,7 @@ export default function Toolbar() {
                 </div>
 
                 <div id="grid-list"
-                    className="lg:hidden xl:hidden 2xl:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-1 bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-6">
+                    className="lg:hidden xl:hidden 2xl:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-1 bg-[#f3f3f4] rounded-full shadow-lg px-4 py-2 flex items-center gap-6">
 
                     <GridButton />
 
