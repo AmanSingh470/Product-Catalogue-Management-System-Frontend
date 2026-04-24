@@ -1,34 +1,101 @@
-import BackButton from "@/components/Layout/BackButton";
 
-export default function Main({title="SuFilm - TFOm", segment="Instrument panels", category="Technology", description="Pre heated thin TPO foil, in mould grained during overmoulding operation.", contact="Alain Choquet", email="Alain.Choquet@motherson.com", functions="Senior Marketing Manager", company = "SMRC", division="Modules & Polymer Products", lastModified="4/17/2026"}: any) {
-  return (
-    <div className="ml-8 mr-8">
-      <BackButton />
+import Image from "next/image";
+export default function Main() {
+    return (
+        <div>
 
-      <h1 className="text-4xl mt-8 mb-4">{title}</h1>
-      <div>Segment - {segment}</div>
-      <div>Category - {category}</div>
+            <div className="grid grid-cols-5 gap-8 h-170 mb-30">
+                <div className="bg-red-200 col-span-4 relative">
+                    <Image
+                        src="/assets/images/5_Gearbox_Assembly.png"
+                        alt="product Image 1"
+                        unoptimized
+                        fill
+                        className="rounded object-cover"
+                    />
+                </div>
 
-      <div className="flex justify-center items-center mt-3">
-        <div className="basis-1/2">{description}</div>
-        <div className="flex-1/4">
-          <ul>
-              <li>Contact - {contact}</li> 
-              <li>Email - {email}</li> 
-              <li>Function - {functions}</li> 
-          </ul>
+                <div className="grid grid-rows-3 gap-8 col-span-1">
+                    <div className="bg-blue-200 relative">
+                        <Image
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            alt="product Image 1"
+                            unoptimized
+                            fill
+                            className="rounded object-cover"
+                        />
+                    </div>
+                    <div className="bg-blue-200 relative">
+                        <Image
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            alt="product Image 1"
+                            unoptimized
+                            fill
+                            className="rounded object-cover"
+                        />
+                    </div>
+                    <div className="bg-blue-200 relative">
+                        <Image
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            alt="product Image 1"
+                            unoptimized
+                            fill
+                            className="rounded object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-4 gap-14">
+
+                <div className="grid-span-1 ">
+                    <h2 className="text-xl mb-4">Main Advantages</h2>
+                    <div className="grid gap-4">
+                        <div>
+                            <h3 className="text-md text-[var(--grey-800)]">Enhanced experience</h3>
+                            <p className="text-[var(--grey-600)] text-sm">Distinctive surface finishing achieved through thee printed pattern.</p>
+                        </div>
+                        <div>
+                            <h3>Sustainability</h3>
+                            <p className="text-[var(--grey-600)] text-sm">Less CO2 than painting syste, reducing dramatically carbon footprint.</p>
+                        </div>
+                        <div>
+                            <h3>Sustainability</h3>
+                            <p className="text-[var(--grey-600)] text-sm">One single material based system</p>
+                        </div>
+                        <div>
+                            <h3>Cost reduction</h3>
+                            <p className="text-[var(--grey-600)] text-sm">Most cost effective than insert moduling</p>
+                        </div>
+                        <div>
+                            <h3>Modularity</h3>
+                            <p className="text-[var(--grey-600)] text-sm">Suitable for any plant in the world</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="grid-span-1 ">
+                    <h2 className="">Key facts</h2>
+                        <ul className="list-disc grid gap-4">
+                            <li className="text-sm text-[var(--grey-600)]">Avoiding expensive paint shop investment</li>
+                            <li className="text-sm text-[var(--grey-600)]">Robust global technology production in Motherson for a decade for Renault Zoe and Nissan Magnite</li>
+                        </ul>
+                </div>
+                <div className="grid-span-1 ">
+                    <h2>Intellectual Property</h2>
+                    <div className="grid gap-4  ">
+                        <div>2 patents</div>
+                    </div>
+                </div>
+                <div className="grid-span-1 ">
+                    <h2>Applications / Compliance</h2>
+                    <div className="grid grid-rows-5">
+                        <div>Small to large decorative parts</div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
-        <div className="flex-1/4">
-        <ul>
-          <li>Company - {company}</li>
-          <li>Division - {division}</li>
-          <li>Last Modified - {lastModified}</li>
-          <li>
-            <button className="cursor-pointer underline text-red-600">Download Factsheet</button>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </div>
-  )
+    )
 }
