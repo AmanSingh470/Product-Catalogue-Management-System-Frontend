@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
+import { getProducts } from "@/services/product.service";
 
 interface ProductContextType {
   filteredProducts: Product[];
@@ -70,16 +71,16 @@ export function ProductProvider({ children, initialProducts }: { children: React
     if (!hasMore) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
-      const data = await res.json();
+      // const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
+      const res = await getProducts(page+1);
+      
+      const data = res;
       console.log(data.items.length);
       
       if (data.items.length === 0) {
-        console.log("hi");
         setHasMore(false);
         return;
       }
-      console.log("bye");
       setProducts((prev) => [...prev, ...data.items]);
       setPage((prev) => prev + 1);
     } catch (err) {
