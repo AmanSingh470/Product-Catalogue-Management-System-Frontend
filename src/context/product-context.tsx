@@ -1,6 +1,5 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import productsData from "@/data/products.json";
 import { Product } from "@/types/product";
 
 interface ProductContextType {
@@ -13,7 +12,9 @@ interface ProductContextType {
   setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
   selectedDivisions: string[];
   setSelectedDivisions: React.Dispatch<React.SetStateAction<string[]>>;
-   resetFilters: () => void;
+  resetFilters: () => void;
+  fetchNextProducts: () => void;
+  hasMore: boolean;
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
@@ -23,11 +24,14 @@ export function ProductProvider({ children, initialProducts }: { children: React
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   const [searchQuery, setSearchQuery] = useState<string>("");
-  
+
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
   const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
   const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
-  
+
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
   // MAIN FILTER LOGIC
   useEffect(() => {
     let result = products;
@@ -37,8 +41,8 @@ export function ProductProvider({ children, initialProducts }: { children: React
       result = result.filter((item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.division.toLowerCase().includes(searchQuery.toLowerCase())||
-        item.segment.toLowerCase().includes(searchQuery.toLowerCase()) 
+        item.division.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.segment.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -61,6 +65,28 @@ export function ProductProvider({ children, initialProducts }: { children: React
     setFilteredProducts(result);
   }, [searchQuery, selectedCompanies, selectedSegments, selectedDivisions, products]);
 
+  // FETCH NEXT PAGE
+  const fetchNextProducts = async () => {
+    if (!hasMore) return;
+
+    try {
+      const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
+      const data = await res.json();
+      console.log(data.items.length);
+      
+      if (data.items.length === 0) {
+        console.log("hi");
+        setHasMore(false);
+        return;
+      }
+      console.log("bye");
+      setProducts((prev) => [...prev, ...data.items]);
+      setPage((prev) => prev + 1);
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -78,7 +104,11 @@ export function ProductProvider({ children, initialProducts }: { children: React
           setSelectedCompanies([]);
           setSelectedSegments([]);
           setSelectedDivisions([]);
-        }
+          setPage(1);
+          setHasMore(true);
+        },
+        fetchNextProducts,
+        hasMore
       }}
     >
       {children}

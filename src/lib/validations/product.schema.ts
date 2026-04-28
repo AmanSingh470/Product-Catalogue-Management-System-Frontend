@@ -19,11 +19,14 @@ export const productSchema = z.object({
   status: z.enum(["active", "inactive"]),
 
   created_at: z.string(),
-  image_url: z.string(),
+  image_url: z.string().nullable(),
 });
 
 export const productsResponseSchema = z.object({
-  data: z.array(productSchema),
+  items: z.array(productSchema),
+  current_page: z.number(),
+  hasMore: z.boolean(),
 });
 
 export type Product = z.infer<typeof productSchema>;
+export type ProductsResponse = z.infer<typeof productsResponseSchema>;

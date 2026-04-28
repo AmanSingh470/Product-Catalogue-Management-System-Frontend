@@ -5,4 +5,5 @@ export interface Product {
   segment: string;
   division: string;
   company: string;
+  image_url?: string;
 }

@@ -52,14 +52,6 @@ export default function Navbar({ mode = "" }: any) {
                     Product Catalogue Management System
                 </h1>
             </div>
-            <div className="hidden p-3 justify-evenly relative w-40">
-                <button className={`cursor-pointer ${scrolled ? "block" : "hidden"}`} onClick={() => setOpen(true)}>
-                    <img className="size-6 header-action" src="/assets/images/bell-icon.svg" alt="" />
-                </button>
-                <button className={`cursor-pointer ${scrolled ? "block" : "hidden"}`} onClick={() => setProfileOpen(true)}>
-                    <img className="size-6 header-action" src="/assets/images/profile-icon.svg" alt="" />
-                </button>
-            </div>
         </nav>
         )
     }

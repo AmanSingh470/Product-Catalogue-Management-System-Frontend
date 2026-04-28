@@ -45,8 +45,8 @@ export default function Category({ name, type, total_products }: Props) {
   return (
 
     <div className="flex flex-col">
-      <div className="flex justify-between">
-        <label className="flex cursor-pointer text-sm">
+      <div className="flex justify-between text-black hover:text-[var(--grey-600)]">
+        <label className="flex cursor-pointer text-sm" >
           <input
             type="checkbox"
             checked={selected.includes(name)}
