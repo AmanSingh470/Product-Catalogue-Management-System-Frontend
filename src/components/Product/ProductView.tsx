@@ -65,7 +65,7 @@ import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 
 export default function ProductView() {
     const { view } = useView();
-    const { filteredProducts, dataWithSkeletons } = useProducts();
+    const { filteredProducts, dataWithSkeletons, loading } = useProducts();
     const isProductsEmpty = useIsProductsEmpty();
 
     const { hasMore, fetchNextProducts } = useProducts();
@@ -87,7 +87,7 @@ export default function ProductView() {
                         increaseViewportBy={500}
                         data={dataWithSkeletons}
                         endReached={() => {
-                            if (hasMore) fetchNextProducts();
+                            if (hasMore && !loading) fetchNextProducts();
                         }}
                         itemContent={(index, product) => {
                             if (product.__skeleton) {

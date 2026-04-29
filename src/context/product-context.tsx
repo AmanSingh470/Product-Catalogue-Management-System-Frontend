@@ -38,8 +38,8 @@ export function ProductProvider({ children, initialProducts }: { children: React
   const [hasMore, setHasMore] = useState(true);
 
   const [loading, setLoading] = useState(false);
-  
-  const skeletonCount = useIsLargeScreen()?4:2;
+
+  const skeletonCount = useIsLargeScreen() ? 4 : 2;
   const dataWithSkeletons = loading
     ? [
       ...filteredProducts,
@@ -82,11 +82,12 @@ export function ProductProvider({ children, initialProducts }: { children: React
 
   // FETCH NEXT PAGE
   const fetchNextProducts = async () => {
-    if (!hasMore) return;
+    if (!hasMore || loading) return;
 
     try {
       // const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
       setLoading(true);
+      const nextPage = page + 1;
       const res = await getProducts(page + 1);
 
       const data = res;
@@ -94,9 +95,9 @@ export function ProductProvider({ children, initialProducts }: { children: React
 
       if (data.hasMore === false) {
         setHasMore(false);
-        return;
       }
       setProducts((prev) => [...prev, ...data.items]);
+      // setPage(res.current_page);
       setPage((prev) => prev + 1);
     } catch (err) {
       console.error("Error fetching products:", err);
