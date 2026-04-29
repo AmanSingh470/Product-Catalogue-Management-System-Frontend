@@ -27,7 +27,6 @@ export default function ProductCard({ title, segment, division, image_url }: any
                                 alt={title}
                                 fill
                                 className="rounded object-cover"
-                                unoptimized
                                 onLoad={() => setLoaded(true)}
                             />
 
@@ -50,7 +49,6 @@ export default function ProductCard({ title, segment, division, image_url }: any
                                     src={`${baseURL}/storage/images/products/${image_url}`}
                                     alt={title}
                                     className="w-10 h-10 rounded object-cover"
-                                    unoptimized
                                     width={40}
                                     height={40}
                                 />

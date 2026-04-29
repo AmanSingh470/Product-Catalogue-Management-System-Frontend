@@ -66,7 +66,7 @@ export default function ProductView() {
     const { filteredProducts } = useProducts();
     const isProductsEmpty = useIsProductsEmpty();
 
-    const {hasMore, fetchNextProducts} = useProducts();
+    const { hasMore, fetchNextProducts } = useProducts();
 
     return view === "grid" ?
         (
@@ -80,25 +80,25 @@ export default function ProductView() {
                 )}
 
                 {!isProductsEmpty && (
-    
-                        <VirtuosoGrid
-                            useWindowScroll
-                            increaseViewportBy={500}
-                            data={filteredProducts}
-                            endReached={() => {
-                                if (hasMore) fetchNextProducts();
-                            }}
-                            itemContent={(index, product) => (
-                                <ProductCard {...product} />
-                            )}
-                            listClassName="grid gap-4 grid-span-full grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 bg-[#F5F6F8]"
-                        />
+
+                    <VirtuosoGrid
+                        useWindowScroll
+                        increaseViewportBy={500}
+                        data={filteredProducts}
+                        endReached={() => {
+                            if (hasMore) fetchNextProducts();
+                        }}
+                        itemContent={(index, product) => (
+                            <ProductCard {...product} />
+                        )}
+                        listClassName="grid gap-4 grid-span-full grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 bg-[#F5F6F8]"
+                    />
                 )}
             </div>
         )
         :
         (
-            <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3 relative">
+            <div className="flex-1 bg-[#F5F6F8] px-2 lg:px-5 xl:px-8 2xl:px-8 py-3">
                 {isProductsEmpty && (
 
                     <div className="lg:text-left py-5 xl:text-center 2xl:text-center-5 text-gray-500 text-xl z-51">
@@ -115,9 +115,19 @@ export default function ProductView() {
                         </div>
 
                         <div className="space-y-2">
-                            {filteredProducts.map((item) => (
-                                <ProductCard key={item.id} {...item} />
-                            ))}
+                            <Virtuoso
+                                useWindowScroll
+                                increaseViewportBy={500}
+                                data={filteredProducts}
+                                endReached={() => {
+                                    if (hasMore) fetchNextProducts();
+                                }}
+                                itemContent={(index, product) => (
+                                    <div className="mb-4">
+                                        <ProductCard {...product} />
+                                    </div>
+                                )}
+                            />
                         </div>
                     </div>)}
             </div>
