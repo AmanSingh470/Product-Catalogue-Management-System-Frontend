@@ -4,6 +4,8 @@ import { useView } from "@/context/view-context";
 import { useProducts } from "@/context/product-context";
 import { useIsProductsEmpty } from "@/hooks/useIsProductsEmpty";
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso";
+import Spinner from "@/components/Layout/Spinner";
+import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 
 // export default function ProductView() {
 //     const { view } = useView();
@@ -63,7 +65,7 @@ import { Virtuoso, VirtuosoGrid } from "react-virtuoso";
 
 export default function ProductView() {
     const { view } = useView();
-    const { filteredProducts } = useProducts();
+    const { filteredProducts, dataWithSkeletons } = useProducts();
     const isProductsEmpty = useIsProductsEmpty();
 
     const { hasMore, fetchNextProducts } = useProducts();
@@ -80,17 +82,19 @@ export default function ProductView() {
                 )}
 
                 {!isProductsEmpty && (
-
                     <VirtuosoGrid
                         useWindowScroll
                         increaseViewportBy={500}
-                        data={filteredProducts}
+                        data={dataWithSkeletons}
                         endReached={() => {
                             if (hasMore) fetchNextProducts();
                         }}
-                        itemContent={(index, product) => (
-                            <ProductCard {...product} />
-                        )}
+                        itemContent={(index, product) => {
+                            if (product.__skeleton) {
+                                return <ProductCardSkeleton />;
+                            }
+                            return <ProductCard {...product} />
+                        }}
                         listClassName="grid gap-4 grid-span-full grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 bg-[#F5F6F8]"
                     />
                 )}

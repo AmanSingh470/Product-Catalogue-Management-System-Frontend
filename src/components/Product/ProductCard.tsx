@@ -51,6 +51,7 @@ export default function ProductCard({ title, segment, division, image_url }: any
                                     className="w-10 h-10 rounded object-cover"
                                     width={40}
                                     height={40}
+                                    onLoad={() => setLoaded(true)}
                                 />
                                 <span className="text-xs font-medium text-gray-800">
                                     {title}

@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import { getProducts } from "@/services/product.service";
+import { useIsLargeScreen } from "@/hooks/useIsLargeScreen";
 
 interface ProductContextType {
   filteredProducts: Product[];
@@ -16,6 +17,9 @@ interface ProductContextType {
   resetFilters: () => void;
   fetchNextProducts: () => void;
   hasMore: boolean;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  dataWithSkeletons: any[];
 }
 
 const ProductContext = createContext<ProductContextType | null>(null);
@@ -32,6 +36,16 @@ export function ProductProvider({ children, initialProducts }: { children: React
 
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+
+  const [loading, setLoading] = useState(false);
+  
+  const skeletonCount = useIsLargeScreen()?4:2;
+  const dataWithSkeletons = loading
+    ? [
+      ...filteredProducts,
+      ...Array.from({ length: skeletonCount }, () => ({ __skeleton: true })),
+    ]
+    : filteredProducts;
 
   // MAIN FILTER LOGIC
   useEffect(() => {
@@ -72,12 +86,13 @@ export function ProductProvider({ children, initialProducts }: { children: React
 
     try {
       // const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
-      const res = await getProducts(page+1);
-      
+      setLoading(true);
+      const res = await getProducts(page + 1);
+
       const data = res;
       console.log(data.items.length);
-      
-      if (data.items.length === 0) {
+
+      if (data.hasMore === false) {
         setHasMore(false);
         return;
       }
@@ -85,6 +100,9 @@ export function ProductProvider({ children, initialProducts }: { children: React
       setPage((prev) => prev + 1);
     } catch (err) {
       console.error("Error fetching products:", err);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -109,7 +127,10 @@ export function ProductProvider({ children, initialProducts }: { children: React
           setHasMore(true);
         },
         fetchNextProducts,
-        hasMore
+        hasMore,
+        loading,
+        setLoading,
+        dataWithSkeletons
       }}
     >
       {children}
