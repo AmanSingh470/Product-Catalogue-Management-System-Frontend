@@ -164,14 +164,6 @@ body {
 }
 @font-face {
   font-family: "Graphik";
-  src: url("/assets/fonts/Graphik-RegularItalic-Web.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-stretch: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Graphik";
   src: url("/assets/fonts/Graphik-Medium-Web.woff") format("woff");
   font-weight: 500;
   font-style: normal;

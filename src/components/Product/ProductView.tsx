@@ -9,7 +9,7 @@ import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 
 // export default function ProductView() {
 //     const { view } = useView();
-//     const { filteredProducts} = useProducts();
+//     const { products} = useProducts();
 //     const isProductsEmpty = useIsProductsEmpty();
 
 //     return view === "grid" ?
@@ -28,7 +28,7 @@ import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 //                         id="product-grid"
 //                         className="grid gap-4 grid-span-full grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 bg-[#F5F6F8]"
 //                     >
-//                         {filteredProducts.map((item) => (
+//                         {products.map((item) => (
 //                             <ProductCard key={item.id} {...item} />
 //                         ))}
 //                     </div>
@@ -54,7 +54,7 @@ import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 //                         </div>
 
 //                         <div className="space-y-2">
-//                             {filteredProducts.map((item) => (
+//                             {products.map((item) => (
 //                                 <ProductCard key={item.id} {...item} />
 //                             ))}
 //                         </div>
@@ -65,7 +65,7 @@ import ProductCardSkeleton from "@/components/Layout/ProductCardSkeleton";
 
 export default function ProductView() {
     const { view } = useView();
-    const { filteredProducts, dataWithSkeletons, loading } = useProducts();
+    const { products, dataWithSkeletons, loading } = useProducts();
     const isProductsEmpty = useIsProductsEmpty();
 
     const { hasMore, fetchNextProducts } = useProducts();
@@ -111,7 +111,7 @@ export default function ProductView() {
                 )}
                 {!isProductsEmpty && (
                     <div id="product-list">
-                        <div className="grid grid-cols-8 text-sm text-black px-4 py-2 sticky top-30 h-10 z-99 bg-[var(--grey-200)]">
+                        <div className="grid grid-cols-8 text-sm text-black px-4 py-2 sticky top-[180px] lg:top-[120px] h-10 z-99 bg-[var(--grey-200)]">
                             <span className="col-span-3">Product name</span>
                             <span className="col-span-2">Segment</span>
                             <span className="col-span-2">Division</span>
@@ -122,7 +122,7 @@ export default function ProductView() {
                             <Virtuoso
                                 useWindowScroll
                                 increaseViewportBy={500}
-                                data={filteredProducts}
+                                data={products}
                                 endReached={() => {
                                     if (hasMore) fetchNextProducts();
                                 }}

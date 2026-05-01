@@ -2,6 +2,7 @@
 import { useProducts } from "@/context/product-context";
 
 interface Props {
+  id: number,
   name: string;
   count: any;
   type: "company" | "segment" | "division";
@@ -9,7 +10,7 @@ interface Props {
   total_products: number;
 }
 
-export default function Category({ name, type, total_products }: Props) {
+export default function Category({ id, name, type, total_products }: Props) {
   const {
     selectedCompanies,
     setSelectedCompanies,
@@ -20,7 +21,7 @@ export default function Category({ name, type, total_products }: Props) {
   } = useProducts();
 
 
-  const getState = (): [string[], (value: React.SetStateAction<string[]>) => void] => {
+  const getState = (): [number[], (value: React.SetStateAction<number[]>) => void] => {
     if (type === "company") {
       return [selectedCompanies, setSelectedCompanies];
     }
@@ -34,10 +35,10 @@ export default function Category({ name, type, total_products }: Props) {
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setSelected((prev: string[]) => [...prev, name]);
+      setSelected((prev: number[]) => [...prev, id]);
     } else {
-      setSelected((prev: string[]) =>
-        prev.filter((item) => item !== name)
+      setSelected((prev: number[]) =>
+        prev.filter((item) => item !== id)
       );
     }
   };
@@ -45,15 +46,15 @@ export default function Category({ name, type, total_products }: Props) {
   return (
 
     <div className="flex flex-col">
-      <div className="flex justify-between text-black hover:text-[var(--grey-600)]">
+      <div className="flex justify-between text-[var(--grey-500)] hover:text-black">
         <label className="flex cursor-pointer text-sm" >
           <input
             type="checkbox"
-            checked={selected.includes(name)}
+            checked={selected.includes(id)}
             onChange={handleCheckboxChange}
-            className="cursor-pointer"
+            className="cursor-pointer accent-red-500 peer"
           />
-          <span className="ml-2">{name}</span>
+          <span className="ml-2 peer-checked:text-black">{name}</span>
         </label>
         <div>{total_products}</div>
       </div>

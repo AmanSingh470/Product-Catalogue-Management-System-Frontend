@@ -2,19 +2,19 @@ import { useMemo } from "react";
 import { useProducts } from "@/context/product-context";
 
 export const useIsProductsEmpty = () => {
-  const { filteredProducts } = useProducts();
+  const { products } = useProducts();
 
   const isEmpty = useMemo(() => {
-    if (!filteredProducts) return true;
+    if (!products) return true;
 
     // normal case: []
-    if (Array.isArray(filteredProducts)) {
-      if (filteredProducts.length === 0) return true;
+    if (Array.isArray(products)) {
+      if (products.length === 0) return true;
       return false;
     }
 
     return true;
-  }, [filteredProducts]);
+  }, [products]);
 
   return isEmpty;
 };

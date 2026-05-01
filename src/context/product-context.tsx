@@ -5,15 +5,15 @@ import { getProducts } from "@/services/product.service";
 import { useIsLargeScreen } from "@/hooks/useIsLargeScreen";
 
 interface ProductContextType {
-  filteredProducts: Product[];
+  products: Product[];
   searchQuery: string;
   setSearchQuery: (q: string) => void;
-  selectedCompanies: string[];
-  setSelectedCompanies: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedSegments: string[];
-  setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedDivisions: string[];
-  setSelectedDivisions: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedCompanies: number[];
+  setSelectedCompanies: React.Dispatch<React.SetStateAction<number[]>>;
+  selectedSegments: number[];
+  setSelectedSegments: React.Dispatch<React.SetStateAction<number[]>>;
+  selectedDivisions: number[];
+  setSelectedDivisions: React.Dispatch<React.SetStateAction<number[]>>;
   resetFilters: () => void;
   fetchNextProducts: () => void;
   hasMore: boolean;
@@ -26,13 +26,11 @@ const ProductContext = createContext<ProductContextType | null>(null);
 
 export function ProductProvider({ children, initialProducts }: { children: React.ReactNode; initialProducts: Product[] }) {
   const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   const [searchQuery, setSearchQuery] = useState<string>("");
-
-  const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
-  const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
-  const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
+  const [selectedCompanies, setSelectedCompanies] = useState<number[]>([]);
+  const [selectedSegments, setSelectedSegments] = useState<number[]>([]);
+  const [selectedDivisions, setSelectedDivisions] = useState<number[]>([]);
 
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -42,43 +40,41 @@ export function ProductProvider({ children, initialProducts }: { children: React
   const skeletonCount = useIsLargeScreen() ? 4 : 2;
   const dataWithSkeletons = loading
     ? [
-      ...filteredProducts,
+      ...products,
       ...Array.from({ length: skeletonCount }, () => ({ __skeleton: true })),
     ]
-    : filteredProducts;
+    : products;
 
   // MAIN FILTER LOGIC
+  const filtersKey = JSON.stringify({
+    search: searchQuery,
+    companies: selectedCompanies,
+    segments: selectedSegments,
+    divisions: selectedDivisions,
+  });
   useEffect(() => {
-    let result = products;
+    const t = setTimeout(async () => {
+      // reset state
+      setPage(1);
+      setHasMore(true);
 
-    // search
-    if (searchQuery !== "") {
-      result = result.filter((item) =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.division.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.segment.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    result = result.filter((item) => {
-      const companyMatch =
-        selectedCompanies.length === 0 ||
-        selectedCompanies.includes(item.company);
-
-      const segmentMatch =
-        selectedSegments.length === 0 ||
-        selectedSegments.includes(item.segment);
-
-      const divisionMatch =
-        selectedDivisions.length === 0 ||
-        selectedDivisions.includes(item.division);
-
-      return companyMatch && segmentMatch && divisionMatch;
-    });
-
-    setFilteredProducts(result);
-  }, [searchQuery, selectedCompanies, selectedSegments, selectedDivisions, products]);
+      // fetch first page with current filters
+      // getProducts(page);
+      const res = await getProducts({
+        page: 1,
+        filters: {
+          search: searchQuery,
+          division: selectedDivisions,
+          company: selectedCompanies,
+          segment: selectedSegments,
+        },
+      });
+      setProducts(res.items);
+      setHasMore(res.hasMore);
+      setPage(1);
+    }, 400); // debounce (important for search)
+    return () => clearTimeout(t);
+  }, [filtersKey]);
 
   // FETCH NEXT PAGE
   const fetchNextProducts = async () => {
@@ -88,7 +84,16 @@ export function ProductProvider({ children, initialProducts }: { children: React
       // const res = await fetch(`http://localhost:8000/api/get-products?page=${page + 1}`);
       setLoading(true);
       const nextPage = page + 1;
-      const res = await getProducts(page + 1);
+      // const res = await getProducts(nextPage);
+      const res = await getProducts({
+        page: nextPage,
+        filters: {
+          search: searchQuery,
+          division: selectedDivisions,
+          company: selectedCompanies,
+          segment: selectedSegments
+        },
+      });
 
       const data = res;
       console.log(data.items.length);
@@ -110,7 +115,7 @@ export function ProductProvider({ children, initialProducts }: { children: React
   return (
     <ProductContext.Provider
       value={{
-        filteredProducts,
+        products,
         searchQuery,
         setSearchQuery,
         selectedCompanies,

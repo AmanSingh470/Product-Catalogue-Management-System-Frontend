@@ -1,21 +1,27 @@
 import Image from "next/image";
 import { useState } from "react";
-import {useFilter} from "@/context/filter-context";
+import { useFilter } from "@/context/filter-context";
+import { useProducts } from "@/context/product-context";
 
 interface Props {
+    id: number;
     name: string;
     count: number;
     description: string;
     image: string;
     total_products: number
 }
-export default function AllCards({ name, description, image, total_products }: Props) {
+export default function AllCards({ id, name, description, image, total_products }: Props) {
     const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
     const [loaded, setLoaded] = useState(false);
     const { setActiveFilter } = useFilter();
+    const { setSelectedDivisions } = useProducts();
     return (
-        <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden cursor-pointer relative"
-            onClick={()=> setActiveFilter('division')}
+        <div className="flex bg-white h-30 w-full mb-2 p-2 overflow-hidden cursor-pointer relative border border-transparent hover:border-black hover:bg-transparent"
+            onClick={() => {
+                setActiveFilter('division')
+                setSelectedDivisions([id]);
+            }}
         >
             {!loaded && (
                 <div className="absolute inset-0 bg-gray-300 overflow-hidden">

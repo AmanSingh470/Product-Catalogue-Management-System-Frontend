@@ -1,48 +1,45 @@
 
+"use client";
+import { useState } from "react";
 import Image from "next/image";
+
 export default function Main() {
+    const images = [
+        "/assets/images/5_Gearbox_Assembly.png",
+        "/assets/images/Card.jpg",
+        "/assets/images/Card2.png",
+    ];
+    const [mainImage, setMainImage] = useState("/assets/images/5_Gearbox_Assembly.png");
+
     return (
         <div>
 
-            <div className="grid grid-cols-5 gap-8 h-170 mb-30">
+            <div className="grid grid-cols-5 gap-8 h-140 mb-30">
                 <div className="bg-red-200 col-span-4 relative">
                     <Image
-                        src="/assets/images/5_Gearbox_Assembly.png"
-                        alt="product Image 1"
-                        unoptimized
+                        src={mainImage}
+                        alt="product"
                         fill
                         className="rounded object-cover"
                     />
                 </div>
 
                 <div className="grid grid-rows-3 gap-8 col-span-1">
-                    <div className="bg-blue-200 relative">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            alt="product Image 1"
-                            unoptimized
-                            fill
-                            className="rounded object-cover"
-                        />
-                    </div>
-                    <div className="bg-blue-200 relative">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            alt="product Image 1"
-                            unoptimized
-                            fill
-                            className="rounded object-cover"
-                        />
-                    </div>
-                    <div className="bg-blue-200 relative">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            alt="product Image 1"
-                            unoptimized
-                            fill
-                            className="rounded object-cover"
-                        />
-                    </div>
+                    {images.map((img, i) => (
+                        <div
+                            key={i}
+                            className={`relative cursor-pointer border-2 rounded ${mainImage === img ? "border-black" : "border-transparent"
+                                }`}
+                            onMouseEnter={() => setMainImage(img)}
+                        >
+                            <Image
+                                src={img}
+                                alt={`product ${i}`}
+                                fill
+                                className="rounded object-cover"
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -153,41 +150,41 @@ export default function Main() {
                 <div className="grid grid-cols-4 justify-between gap-5">
                     <div className=" relative h-50">
                         <Image
-                        src="/assets/images/5_Gearbox_Assembly.png"
-                        fill
-                        unoptimized
-                        className="object-cover"
-                        alt="other products"
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            fill
+                            unoptimized
+                            className="object-cover"
+                            alt="other products"
                         />
                         <h3>2D logo Tata Nexon & Curvv</h3>
                     </div>
                     <div className=" relative h-50">
                         <Image
-                        src="/assets/images/5_Gearbox_Assembly.png"
-                        fill
-                        unoptimized
-                        className="object-cover"
-                        alt="other products"
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            fill
+                            unoptimized
+                            className="object-cover"
+                            alt="other products"
                         />
                         <h3>2D logo Tata Nexon & Curvv</h3>
                     </div>
                     <div className=" relative h-50">
                         <Image
-                        src="/assets/images/5_Gearbox_Assembly.png"
-                        fill
-                        unoptimized
-                        className="object-cover"
-                        alt="other products"
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            fill
+                            unoptimized
+                            className="object-cover"
+                            alt="other products"
                         />
                         <h3>2D logo Tata Nexon & Curvv</h3>
                     </div>
                     <div className=" relative h-50">
                         <Image
-                        src="/assets/images/5_Gearbox_Assembly.png"
-                        fill
-                        unoptimized
-                        className="object-cover"
-                        alt="other products"
+                            src="/assets/images/5_Gearbox_Assembly.png"
+                            fill
+                            unoptimized
+                            className="object-cover"
+                            alt="other products"
                         />
                         <h3>2D logo Tata Nexon & Curvv</h3>
                     </div>

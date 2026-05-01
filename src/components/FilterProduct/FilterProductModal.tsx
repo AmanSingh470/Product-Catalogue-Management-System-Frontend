@@ -12,7 +12,7 @@ export default function FilterProductModal() {
 
             <div className="flex justify-between items-center p-4 border-b bg-white sticky top-0 z-10">
                 <h2 id="filter-modal-title" className="text-lg font-bold uppercase">{activeFilter}</h2>
-                <button id="filter-modal-close-btn" className="text-2xl font-bold" onClick={closeModal}>&times;</button>
+                <button id="filter-modal-close-btn" className="text-2xl font-bold cursor-pointer" onClick={closeModal}>&times;</button>
             </div>
 
             <div id="filter-modal-content" className="flex-1 overflow-y-auto p-4 pb-24">
@@ -20,7 +20,7 @@ export default function FilterProductModal() {
             </div>
 
             <div className="fixed bottom-0 left-0 w-full bg-white border-t p-4">
-                <button id="apply-filters-btn" className="w-full bg-red-500 text-white py-3 rounded-lg font-bold" onClick={closeModal}>
+                <button id="apply-filters-btn" className="w-full bg-red-500 text-white py-3 rounded-lg font-bold cursor-pointer" onClick={closeModal}>
                     Show Results
                 </button>
             </div>

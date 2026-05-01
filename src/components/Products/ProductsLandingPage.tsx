@@ -3,8 +3,6 @@ import BackButton from "@/components/Layout/BackButton";
 export default function ProductsLandingPage({ title = "SuFilm - TFOm", segment = "Instrument panels", category = "Technology", description = "Pre heated thin TPO foil, in mould grained during overmoulding operation.", contact = "Alain Choquet", email = "Alain.Choquet@motherson.com", functions = "Senior Marketing Manager", company = "SMRC", division = "Modules & Polymer Products", lastModified = "4/17/2026" }: any) {
   return (
     <div className="mb-22">
-      <BackButton />
-
       <h1 className="text-4xl mt-8 mb-4">{title}</h1>
       <h3 className="text-[var(--grey-600)] text-sm">Segment - {segment}</h3>
       <h3 className="text-[var(--grey-600)] text-sm">Category - {category}</h3>

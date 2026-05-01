@@ -20,7 +20,7 @@ export default function HomeClient({ initialProducts, initialFilters }: any) {
     <>
       <NotificationProvider>
         <ProfileProvider>
-          <Navbar mode="home"/>
+          <Navbar mode="home" />
           <NotificationDropDown />
           <ProfileDropDown />
         </ProfileProvider>
