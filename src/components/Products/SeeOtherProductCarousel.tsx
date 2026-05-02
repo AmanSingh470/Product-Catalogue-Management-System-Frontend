@@ -5,15 +5,15 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const images = [
   "/assets/images/5_Gearbox_Assembly.png",
-  "/assets/images/Card.jpg",
+  "/assets/images/card.jpg",
   "/assets/images/5_Gearbox_Assembly.png",
-  "/assets/images/Card2.png",
+  "/assets/images/card2.png",
   "/assets/images/5_Gearbox_Assembly.png",
-  "/assets/images/Card2.png",
+  "/assets/images/card2.png",
   "/assets/images/5_Gearbox_Assembly.png",
-  "/assets/images/Card2.png",
+  "/assets/images/card2.png",
   "/assets/images/5_Gearbox_Assembly.png",
-  "/assets/images/Card2.png",
+  "/assets/images/card2.png",
 ];
 
 export default function SeeOtherProductCarousel() {

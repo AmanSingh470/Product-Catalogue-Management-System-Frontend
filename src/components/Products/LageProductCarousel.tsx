@@ -14,9 +14,9 @@ export default function LargeProductCarousel() {
 
   const images = [
     "/assets/images/5_Gearbox_Assembly.png",
-    "/assets/images/Card.jpg",
-    "/assets/images/Card2.png",
-    "/assets/images/Card2.png",
+    "/assets/images/card.jpg",
+    "/assets/images/card2.png",
+    "/assets/images/card2.png",
   ];
   const [mainImage, setMainImage] = useState("/assets/images/5_Gearbox_Assembly.png");
 
