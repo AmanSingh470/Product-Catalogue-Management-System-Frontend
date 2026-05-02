@@ -114,48 +114,6 @@ export default function Main() {
 
             <div>
                 <h2 className="text-xl mb-5">See other products</h2>
-                {/* <div className="grid grid-cols-1 md:grid-cols-4 justify-between gap-5">
-                    <div className=" relative h-40 md:h-50">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            fill
-                            unoptimized
-                            className="object-cover"
-                            alt="other products"
-                        />
-                        <h3>2D logo Tata Nexon & Curvv</h3>
-                    </div>
-                    <div className=" relative h-40 md:h-50">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            fill
-                            unoptimized
-                            className="object-cover"
-                            alt="other products"
-                        />
-                        <h3>2D logo Tata Nexon & Curvv</h3>
-                    </div>
-                    <div className=" relative h-40 md:h-50">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            fill
-                            unoptimized
-                            className="object-cover"
-                            alt="other products"
-                        />
-                        <h3>2D logo Tata Nexon & Curvv</h3>
-                    </div>
-                    <div className=" relative h-40 md:h-50">
-                        <Image
-                            src="/assets/images/5_Gearbox_Assembly.png"
-                            fill
-                            unoptimized
-                            className="object-cover"
-                            alt="other products"
-                        />
-                        <h3>2D logo Tata Nexon & Curvv</h3>
-                    </div>
-                </div> */}
                 <SeeOtherProductCarousel />
             </div>
         </div>
