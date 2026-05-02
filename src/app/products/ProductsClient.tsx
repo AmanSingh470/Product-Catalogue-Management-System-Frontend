@@ -18,7 +18,7 @@ export default function ProductsClient() {
             </ProfileProvider>
         </NotificationProvider>
         <BackButton />
-        <div className="ml-10 mr-10 mb-10">
+        <div className="ml-5 mr-5 md:ml-10 md:mr-10 mb-10">
         <ProductsLandingPage />
         <Main />
         </div>

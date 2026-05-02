@@ -3,30 +3,40 @@ import BackButton from "@/components/Layout/BackButton";
 export default function ProductsLandingPage({ title = "SuFilm - TFOm", segment = "Instrument panels", category = "Technology", description = "Pre heated thin TPO foil, in mould grained during overmoulding operation.", contact = "Alain Choquet", email = "Alain.Choquet@motherson.com", functions = "Senior Marketing Manager", company = "SMRC", division = "Modules & Polymer Products", lastModified = "4/17/2026" }: any) {
   return (
     <div className="mb-22">
-      <h1 className="text-4xl mt-8 mb-4">{title}</h1>
+
+      {<h1 className="text-3xl md:text-4xl mt-4 md:mt-8 mb-4">{title}</h1>}
       <h3 className="text-[var(--grey-600)] text-sm">Segment - {segment}</h3>
       <h3 className="text-[var(--grey-600)] text-sm">Category - {category}</h3>
 
-      <div className="flex justify-center mt-6">
-        <div className="basis-1/2 text-[var(--grey-600)] text-sm">{description}</div>
-        <div className="flex-1/4">
-          <ul className="text-[var(--grey-600)] text-sm">
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-6 gap-4">
+
+        <div className="text-[var(--grey-600)] text-xs md:text-sm col-span-1 md:col-span-2 lg-col-span-2">
+          {description}
+        </div>
+
+        <div className="col-span-2 md:col-span-1 lg-col-span-1">
+          <ul className="text-[var(--grey-600)] text-xs md:text-sm">
             <li>Contact - {contact}</li>
             <li>Email - {email}</li>
             <li>Function - {functions}</li>
           </ul>
         </div>
-        <div className="flex-1/4">
-          <ul className="text-[var(--grey-600)] text-sm">
+
+        <div className="col-span-2 md:col-span-1 lg-col-span-1">
+          <ul className="text-[var(--grey-600)] text-xs md:text-sm">
             <li>Company - {company}</li>
             <li>Division - {division}</li>
             <li>Last Modified - {lastModified}</li>
-            <li className="m-2">
-              <button className="cursor-pointer underline text-red-600">Download Factsheet</button>
+            <li className="mt-2">
+              <button className="cursor-pointer underline text-red-600">
+                Download Factsheet
+              </button>
             </li>
           </ul>
         </div>
+
       </div>
+
     </div>
   )
 }

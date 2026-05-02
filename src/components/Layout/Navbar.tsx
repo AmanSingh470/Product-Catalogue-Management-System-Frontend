@@ -1,13 +1,10 @@
 "use client"
 
 import { useScrollNavbar } from "@/hooks/useScrollNavbar";
-import { useNotification } from "@/context/notification-context";
-import { useProfile } from "@/context/profile-context";
 
 export default function Navbar({ mode = "" }: any) {
     const scrolled = useScrollNavbar();
-    const { setOpen } = useNotification();
-    const { setProfileOpen } = useProfile();
+
     if (mode === "home") {
         return(
         <nav id="navbar"
@@ -97,8 +94,6 @@ export default function Navbar({ mode = "" }: any) {
                     className={`text-sm sm:text-xl md:text-xl lg:text-xl font-bold text-red-500`}>
                     Product Catalogue Management System
                 </h1>
-            </div>
-            <div className="hidden p-3 justify-evenly relative w-40">
             </div>
         </nav>
     )
