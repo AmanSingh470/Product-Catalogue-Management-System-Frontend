@@ -38,6 +38,7 @@ export default function SmallProductCarousel() {
                                 alt={`slide-${index}`}
                                 fill
                                 className="object-cover rounded-lg"
+                                unoptimized
                             />
                         </div>
                     ))}

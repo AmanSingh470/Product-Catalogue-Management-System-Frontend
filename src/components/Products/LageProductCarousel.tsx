@@ -68,6 +68,7 @@ export default function LargeProductCarousel() {
                       alt={`product ${i}`}
                       fill
                       className="object-cover rounded"
+                      unoptimized
                     />
                   </div>
                 </div>

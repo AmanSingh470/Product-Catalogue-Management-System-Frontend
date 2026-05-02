@@ -50,6 +50,7 @@ export default function SeeOtherProductCarousel() {
                   alt={`slide-${index}`}
                   fill
                   className="object-cover rounded-lg"
+                  unoptimized
                 />
               </div>
             </div>
