@@ -1,13 +1,14 @@
 "use client";
-import {useDivisionModal} from "@/context/admin/division-context";
+import { useDivisionModal } from "@/context/admin/division-context";
 import AddIcon from "@/components/Icons/AddIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
 import TickIcon from "@/components/Icons/TickIcon";
+import CalenderIcon from "@/components/Icons/CalenderIcon";
 
 export default function AddDivisionModal() {
-    const {closeAddDivisionModal} = useDivisionModal();    
-    
-    return (
+  const { closeAddDivisionModal } = useDivisionModal();
+
+  return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="w-180 max-w-5xl overflow-hidden rounded-[10px] bg-white shadow-2xl">
 
@@ -16,7 +17,7 @@ export default function AddDivisionModal() {
           <div className="flex items-start gap-4">
 
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50">
-              <AddIcon color="red" size="8"/>
+              <AddIcon color="red" size="8" />
             </div>
 
             <div>
@@ -34,7 +35,7 @@ export default function AddDivisionModal() {
           <button className="rounded-lg p-2 transition hover:bg-gray-100 cursor-pointer"
             onClick={closeAddDivisionModal}
           >
-            <CrossIcon color="black"/>
+            <CrossIcon color="black" />
           </button>
         </div>
 
@@ -43,30 +44,33 @@ export default function AddDivisionModal() {
 
           <form className="space-y-3">
 
-            {/* TITLE */}
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                 Name <span className="text-red-500">*</span>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 space-y-3">
+              {/* TITLE */}
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Name <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
+              
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Description <span className="text-red-500">*</span>
+                </label>
+
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
             </div>
 
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                 Description <span className="text-red-500">*</span>
-              </label>
-
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
 
             {/* FOOTER */}
             <div className="flex flex-col-reverse justify-end gap-4 pt-2 sm:flex-row">

@@ -116,7 +116,7 @@ export default function SeeOtherProductCarousel() {
               <Link href={`/products/${item.id}`} prefetch={false}>
                 <div className="relative h-50 md:h-80 lg:h-60 cursor-pointer">
                   <Image
-                    src={`${BASEURL}/storage/images/products/${item.thumbnail}`}
+                    src={`${BASEURL}/storage/${item.thumbnail}`}
                     alt={`slide-${item.id}`}
                     fill
                     className="object-cover rounded-lg"

@@ -37,7 +37,7 @@ export default function Dashboard() {
                         <div>
                             <h6 className="text-xs font-semibold mb-1">Total Products</h6>
                             <h6 className="text-xl text-red-500 font-medium">1,284</h6>
-                            <p className="text-xs">All Products</p>
+                            <p className="text-xs">products</p>
                         </div>
                     </div>
                     <div className="flex w-full h-25 text-center bg-white rounded-sm shadow-md justify-evenly items-center">
@@ -45,9 +45,9 @@ export default function Dashboard() {
                             <CategoryIcon />
                         </div>
                         <div>
-                            <h6 className="text-xs font-semibold mb-1">Categories</h6>
+                            <h6 className="text-xs font-semibold mb-1">Total Categories</h6>
                             <h6 className="text-xl text-red-500 font-medium">86</h6>
-                            <p className="text-xs">All Categories</p>
+                            <p className="text-xs">categories</p>
                         </div>
                     </div>
                     <div className="flex w-full h-25 text-center bg-white rounded-sm shadow-md justify-evenly items-center">
@@ -55,9 +55,9 @@ export default function Dashboard() {
                             <SegmentIcon />
                         </div>
                         <div>
-                            <h6 className="text-xs font-semibold mb-1">Segments</h6>
+                            <h6 className="text-xs font-semibold mb-1">Total Segments</h6>
                             <h6 className="text-xl text-red-500 font-medium">24</h6>
-                            <p className="text-xs">All Segments</p>
+                            <p className="text-xs">segments</p>
                         </div>
                     </div>
                     <div className="flex w-full h-25 text-center bg-white rounded-sm shadow-md justify-evenly items-center">
@@ -65,9 +65,9 @@ export default function Dashboard() {
                             <DivisionIcon />
                         </div>
                         <div>
-                            <h6 className="text-xs font-semibold mb-1">Divisions</h6>
+                            <h6 className="text-xs font-semibold mb-1">Total Divisions</h6>
                             <h6 className="text-xl text-red-500 font-medium">18</h6>
-                            <p className="text-xs">All Divisions</p>
+                            <p className="text-xs">divisions</p>
                         </div>
                     </div>
                 </div>

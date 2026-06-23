@@ -1,0 +1,33 @@
+{
+  "data": {
+    "counts": {
+      "total_products": 125,
+      "total_categories": 12,
+      "total_segments": 8,
+      "total_divisions": 5
+    },
+    "recent_modified_products": [
+      {
+        "id": 1,
+        "thumbnail": "https://example.com/uploads/product-1.png",
+        "title": "iPhone 15 Pro",
+        "category": "Mobiles",
+        "updated_at": "2026-05-22T10:30:00Z"
+      },
+      {
+        "id": 2,
+        "thumbnail": "https://example.com/uploads/product-2.png",
+        "title": "Samsung Smart TV",
+        "category": "Electronics",
+        "updated_at": "2026-05-22T09:15:00Z"
+      },
+      {
+        "id": 3,
+        "thumbnail": "https://example.com/uploads/product-3.png",
+        "title": "Nike Air Max",
+        "category": "Footwear",
+        "updated_at": "2026-05-21T18:45:00Z"
+      }
+    ]
+  }
+}

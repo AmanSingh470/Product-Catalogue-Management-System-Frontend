@@ -1,13 +1,13 @@
 "use client";
-import {useCompanyContactPersonModal} from "@/context/admin/companycontactperson-context";
+import { useCompanyContactPersonModal } from "@/context/admin/companycontactperson-context";
 import AddIcon from "@/components/Icons/AddIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
 import TickIcon from "@/components/Icons/TickIcon";
 
 export default function AddCompanyContactPersonModal() {
-    const {closeAddCompanyContactPersonModal} = useCompanyContactPersonModal();    
-    
-    return (
+  const { closeAddCompanyContactPersonModal } = useCompanyContactPersonModal();
+
+  return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="w-180 max-w-5xl overflow-hidden rounded-[10px] bg-white shadow-2xl">
 
@@ -16,7 +16,7 @@ export default function AddCompanyContactPersonModal() {
           <div className="flex items-start gap-4">
 
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50">
-              <AddIcon color="red" size="8"/>
+              <AddIcon color="red" size="8" />
             </div>
 
             <div>
@@ -34,7 +34,7 @@ export default function AddCompanyContactPersonModal() {
           <button className="rounded-lg p-2 transition hover:bg-gray-100 cursor-pointer"
             onClick={closeAddCompanyContactPersonModal}
           >
-            <CrossIcon color="black"/>
+            <CrossIcon color="black" />
           </button>
         </div>
 
@@ -43,52 +43,56 @@ export default function AddCompanyContactPersonModal() {
 
           <form className="space-y-3">
 
-            {/* TITLE */}
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Name <span className="text-red-500">*</span>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 space-y-3">
+              {/* TITLE */}
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Name <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
 
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Email <span className="text-red-500">*</span>
-              </label>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Email <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
 
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Function <span className="text-red-500">*</span>
-              </label>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Function <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
-            
-              <div>
-                <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
+
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
                   Company <span className="text-red-500">*</span>
                 </label>
 
-                <select className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none focus:border-red-500">
-                  <option>Select Company</option>
-                </select>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
               </div>
+            </div>
 
             {/* FOOTER */}
             <div className="flex flex-col-reverse justify-end gap-4 pt-2 sm:flex-row">

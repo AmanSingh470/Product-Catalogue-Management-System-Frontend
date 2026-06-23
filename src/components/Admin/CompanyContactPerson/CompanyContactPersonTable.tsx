@@ -54,7 +54,7 @@ export default function CompanyContactPerson() {
 
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 px-5 py-2 border-b border-[#ebebeb]">
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
                         <h2 className="text-lg font-[700] text-[#111111]">
                             All Company Contact Persons
                         </h2>
@@ -62,7 +62,7 @@ export default function CompanyContactPerson() {
                         <div className="h-7 px-3 rounded-full bg-[#ffe9e9] text-[#ff3b30] text-xs font-[600] flex items-center justify-center">
                             1,284
                         </div>
-                        <button className="h-15 lg:h-10 px-3 rounded-[8px] border border-[#dddddd] bg-red-500 text-xs font-[500] text-white flex items-center gap-2 cursor-pointer"
+                        <button className="h-8 lg:h-10 px-3 rounded-[8px] border border-[#dddddd] bg-red-500 text-xs font-[500] text-white flex items-center gap-2 cursor-pointer"
                             onClick={openAddCompanyContactPersonModal}
                         >
                             <AddIcon color="white" size="6"/>

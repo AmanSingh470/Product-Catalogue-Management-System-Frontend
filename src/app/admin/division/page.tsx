@@ -31,7 +31,7 @@ export default function page() {
               </div>
             </div>
 
-            <div className="w-full bg-white px-5 py-4 mt-5">
+            <div className="w-full lg:w-[40%] bg-white px-5 py-4 mt-5">
               <div className="flex flex-wrap items-end gap-4">
 
                 <div className="flex-1">

@@ -67,7 +67,7 @@ const FALLBACK_DETAIL: ProductDetailResponse = {
       email: "",
       function: ""
     },
-    main_advantages: {},
+    main_advantages: [],
     key_facts: [],
     intellectual_properties: [],
     applications: [],

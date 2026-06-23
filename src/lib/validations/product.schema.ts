@@ -32,7 +32,7 @@ export const ProductDetailSchema = z.object({
     function: z.string(),
   }),
 
-  main_advantages: z.record(z.string(), z.string()),
+  main_advantages: z.array(z.string()),
 
   key_facts: z.array(z.string()),
 

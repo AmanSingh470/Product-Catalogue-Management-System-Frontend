@@ -22,7 +22,7 @@ export default function ProductCard({id, title, segment, division, thumbnail }: 
                                 </div>
                             )}
                             <Image
-                                src={`${baseURL}/storage/images/products/${thumbnail}`}
+                                src={`${baseURL}/storage/${thumbnail}`}
                                 alt={title}
                                 fill
                                 className="rounded object-cover"
@@ -45,7 +45,7 @@ export default function ProductCard({id, title, segment, division, thumbnail }: 
 
                             <div className="flex items-center col-span-3 gap-2">
                                 <Image
-                                    src={`${baseURL}/storage/images/products/${thumbnail}`}
+                                    src={`${baseURL}/storage/${thumbnail}`}
                                     alt={title}
                                     className="w-10 h-10 rounded object-cover"
                                     width={40}

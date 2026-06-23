@@ -26,14 +26,17 @@ export default function LargeProductCarousel() {
   const allMedia = [
     ...image.map((img: string) => ({
       type: "image",
-      url: `${baseURL}/storage/images/products/${img}`,
+      url: `${baseURL}/storage/${img}`,
     })),
 
     ...video.map((vid: string) => ({
       type: "video",
-      url: `${baseURL}/storage/videos/products/${vid}`,
+      url: `${baseURL}/storage/${vid}`,
     })),
   ];
+
+  console.log("temp media: ", productDetail );
+  
 
   const [mainMedia, setMainMedia] = useState(allMedia[0]);
 

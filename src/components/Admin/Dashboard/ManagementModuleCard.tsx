@@ -34,7 +34,7 @@ export default function ManagementModuleCard({ mode }: { mode: string }) {
             < ContactPersonIcon/>,
             "companycontactperson"
         ],
-    };//////
+    };
     return (
         <Link className="flex flex-col w-full h-40 bg-gray-100 p-2 rounded-sm relative border border-transparent hover:border-black cursor-pointer hover:bg-gray-200 text-gray-600 hover:text-black" href={`/admin/${modeIcons[mode][1]}`}>
             <div className="flex justify-center items-center gap-2">

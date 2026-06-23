@@ -1,13 +1,14 @@
 "use client";
-import {useSegmentModal} from "@/context/admin/segment-context";
+import { useSegmentModal } from "@/context/admin/segment-context";
 import EditIcon from "@/components/Icons/EditIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
 import TickIcon from "@/components/Icons/TickIcon";
+import CalenderIcon from "@/components/Icons/CalenderIcon";
 
 export default function EditSegmentModal() {
-    const {closeEditSegmentModal} = useSegmentModal();    
-    
-    return (
+  const { closeEditSegmentModal } = useSegmentModal();
+
+  return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="w-180 max-w-5xl overflow-hidden rounded-[10px] bg-white shadow-2xl">
 
@@ -34,7 +35,7 @@ export default function EditSegmentModal() {
           <button className="rounded-lg p-2 transition hover:bg-gray-100 cursor-pointer"
             onClick={closeEditSegmentModal}
           >
-            <CrossIcon color="black"/>
+            <CrossIcon color="black" />
           </button>
         </div>
 
@@ -43,17 +44,52 @@ export default function EditSegmentModal() {
 
           <form className="space-y-3">
 
-            {/* TITLE */}
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Name <span className="text-red-500">*</span>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 space-y-3">
+              {/* TITLE */}
+              <div className="col-span-1 sm:col-span-2">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Name <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
+
+              {/* CREATED */}
+              <div className="col-span-1 sm:col-span-1">
+                <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
+                  Created At
+                </label>
+
+                <div className="flex h-8 items-center gap-3 rounded-[8px] border border-[#E5E7EB] bg-[#F7F8FA] px-2 text-[#6B7280]">
+
+                  <CalenderIcon />
+
+                  <span className="text-xs">
+                    06 May 2026 02:30 PM
+                  </span>
+                </div>
+              </div>
+
+              {/* UPDATED */}
+              <div className="col-span-1 sm:col-span-1">
+                <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
+                  Updated At
+                </label>
+
+                <div className="flex h-8 items-center gap-3 rounded-[8px] border border-[#E5E7EB] bg-[#F7F8FA] px-2 text-[#6B7280]">
+
+                  <CalenderIcon />
+
+                  <span className="text-xs">
+                    10 May 2026 01:32 PM
+                  </span>
+                </div>
+              </div>
+
             </div>
 
             {/* FOOTER */}

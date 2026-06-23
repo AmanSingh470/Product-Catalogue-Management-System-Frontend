@@ -3,6 +3,7 @@ import { useCompanyContactPersonModal } from "@/context/admin/companycontactpers
 import EditIcon from "@/components/Icons/EditIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
 import TickIcon from "@/components/Icons/TickIcon";
+import CalenderIcon from "@/components/Icons/CalenderIcon";
 
 export default function EditCompanyContactPersonModal() {
   const { closeEditCompanyContactPersonModal } = useCompanyContactPersonModal();
@@ -43,51 +44,89 @@ export default function EditCompanyContactPersonModal() {
 
           <form className="space-y-3">
 
-            {/* TITLE */}
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Name <span className="text-red-500">*</span>
-              </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 space-y-3">
+              {/* TITLE */}
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Name <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
 
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Email <span className="text-red-500">*</span>
-              </label>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Email <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
 
-            <div>
-              <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
-                Function <span className="text-red-500">*</span>
-              </label>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Function <span className="text-red-500">*</span>
+                </label>
 
-              <input
-                type="text"
-                defaultValue="Electrical and Electronics"
-                className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
-              />
-            </div>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
 
-            <div>
-              <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
-                Company <span className="text-red-500">*</span>
-              </label>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="mb-2 block text-xs font-semibold text-[#1E1E1E]">
+                  Company <span className="text-red-500">*</span>
+                </label>
 
-              <select className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none focus:border-red-500">
-                <option>Select Company</option>
-              </select>
+                <input
+                  type="text"
+                  defaultValue="Electrical and Electronics"
+                  className="h-8 w-full rounded-[8px] border border-[#D9DDE3] px-2 text-xs outline-none transition focus:border-red-500"
+                />
+              </div>
+
+              {/* CREATED */}
+              <div className="col-span-1 sm:col-span-1">
+                <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
+                  Created At
+                </label>
+
+                <div className="flex h-8 items-center gap-3 rounded-[8px] border border-[#E5E7EB] bg-[#F7F8FA] px-2 text-[#6B7280]">
+
+                  <CalenderIcon />
+
+                  <span className="text-xs">
+                    06 May 2026 02:30 PM
+                  </span>
+                </div>
+              </div>
+
+              {/* UPDATED */}
+              <div className="col-span-1 sm:col-span-1">
+                <label className="mb-1 block text-xs font-semibold text-[#1E1E1E]">
+                  Updated At
+                </label>
+
+                <div className="flex h-8 items-center gap-3 rounded-[8px] border border-[#E5E7EB] bg-[#F7F8FA] px-2 text-[#6B7280]">
+
+                  <CalenderIcon />
+
+                  <span className="text-xs">
+                    10 May 2026 01:32 PM
+                  </span>
+                </div>
+              </div>
+
+
             </div>
 
             {/* FOOTER */}
